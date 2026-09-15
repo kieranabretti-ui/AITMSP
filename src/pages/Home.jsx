@@ -26,7 +26,7 @@ const SERVICES = [
   {
     n: '03',
     title: 'Cloud & backup',
-    body: "Backups that are actually tested, and cloud accounts (Microsoft 365, Google Workspace) configured so a lost laptop isn't a lost business.",
+    body: 'Backup verification on Silver and Gold, plus Microsoft 365 or Google Workspace data protection and backup on Gold — so a lost laptop or deleted mailbox isn’t a lost business.',
     to: '/services#cloud-backup',
   },
 ]
