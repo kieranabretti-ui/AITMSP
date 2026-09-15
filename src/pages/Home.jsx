@@ -62,31 +62,27 @@ export default function Home() {
 
           <div className="md:col-span-5 md:pt-3">
             <div className="rounded-sm border border-ink/10 bg-ink text-paper shadow-card">
-              <div className="flex items-center justify-between border-b border-paper/10 px-5 py-3">
+              <div className="border-b border-paper/10 px-5 py-3">
                 <span className="font-mono text-xs uppercase tracking-wideish text-paper/60">
-                  Sample client dashboard
-                </span>
-                <span className="flex items-center gap-1.5 font-mono text-xs text-petrol-light">
-                  <span className="h-1.5 w-1.5 rounded-full bg-petrol-light" />
-                  Monitored
+                  How we respond
                 </span>
               </div>
-              <dl className="divide-y divide-paper/10">
+              <ol className="divide-y divide-paper/10">
                 {[
-                  ['Devices online', '42 / 42'],
-                  ['Patches applied (7d)', '118'],
-                  ['Threats blocked (7d)', '6'],
-                  ['Open incidents', '0'],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex items-center justify-between px-5 py-3.5">
-                    <dt className="text-sm text-paper/65">{k}</dt>
-                    <dd className="font-mono text-sm tabular-nums text-paper">{v}</dd>
-                  </div>
+                  ['01', 'Monitor', 'Devices and email watched continuously — 24/7 on Silver and Gold'],
+                  ['02', 'Detect', 'Alerts triaged the moment something looks wrong, day or night'],
+                  ['03', 'Respond', 'A named engineer acts on confirmed threats, not just flags them'],
+                  ['04', 'Report', 'A plain-English summary of what happened and what changed'],
+                ].map(([n, k, v]) => (
+                  <li key={n} className="flex gap-4 px-5 py-4">
+                    <span className="font-mono text-xs text-petrol-light">{n}</span>
+                    <div>
+                      <p className="font-display text-base font-semibold text-paper">{k}</p>
+                      <p className="mt-0.5 text-sm leading-snug text-paper/60">{v}</p>
+                    </div>
+                  </li>
                 ))}
-              </dl>
-              <p className="border-t border-paper/10 px-5 py-3 text-[11px] text-paper/40">
-                Illustrative example of the monitoring dashboard clients see — not live or aggregate company data.
-              </p>
+              </ol>
             </div>
           </div>
         </div>
