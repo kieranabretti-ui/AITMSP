@@ -1,18 +1,6 @@
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
 
-function IconHelpdesk() {
-  return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16" aria-hidden="true">
-      <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.25" />
-      <path d="M20 34v-4a12 12 0 0124 0v4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <rect x="16" y="34" width="8" height="10" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
-      <rect x="40" y="34" width="8" height="10" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M44 44v2a6 6 0 01-6 6h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  )
-}
-
 function IconShield() {
   return (
     <svg viewBox="0 0 64 64" className="h-16 w-16" aria-hidden="true">
@@ -55,50 +43,49 @@ function IconCloud() {
   )
 }
 
+function IconHelpdesk() {
+  return (
+    <svg viewBox="0 0 64 64" className="h-10 w-10" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.25" />
+      <path d="M20 34v-4a12 12 0 0124 0v4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <rect x="16" y="34" width="8" height="10" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+      <rect x="40" y="34" width="8" height="10" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+      <path d="M44 44v2a6 6 0 01-6 6h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 const SECTIONS = [
-  {
-    id: 'it-support',
-    icon: IconHelpdesk,
-    eyebrow: '01 — IT support',
-    title: 'A helpdesk that picks up.',
-    lead: 'Most IT problems aren’t exotic — a printer won’t connect, someone’s locked out, a new starter needs a laptop by Monday. We handle it fast, and we already know how your systems are set up.',
-    points: [
-      'Remote support for day-to-day issues, with onsite visits when a problem needs hands on hardware',
-      'New starter and leaver processing — accounts, devices, access and permissions set up before day one',
-      'Hardware advice and procurement, so you’re not guessing what to buy or overpaying for it',
-      'A single point of contact who already has context on your setup, not a fresh queue every time',
-    ],
-  },
   {
     id: 'cybersecurity',
     icon: IconShield,
-    eyebrow: '02 — Cybersecurity',
-    title: 'Protection sized to your risk, not a generic package.',
-    lead: 'Most attacks on small businesses aren’t sophisticated — they’re a phishing email, a reused password, or a laptop patched three months late. We close those gaps before they’re used.',
+    eyebrow: '01 — Cybersecurity',
+    title: 'Security is the job, not the upsell.',
+    lead: 'Most attacks on small businesses aren’t sophisticated — they’re a phishing email, a reused password, or a laptop patched three months late. We close those gaps and keep watching for the next one.',
     points: [
       'Managed endpoint protection and patching across Windows, macOS and common third-party apps',
       'Email security — phishing and spoofing filtering, with SPF, DKIM and DMARC configured properly',
       'Multi-factor authentication rolled out across email, cloud storage and other key systems',
-      '24/7 monitored threat detection with a response plan, not just an alert nobody reads (Gold tier)',
+      '24/7 monitored threat detection with a named response plan, not just an alert nobody reads (Gold)',
     ],
   },
   {
     id: 'monitoring',
     icon: IconRadar,
-    eyebrow: '03 — Monitoring',
-    title: 'We see it before you do.',
-    lead: 'A dying hard drive, a failed backup job, a server quietly running out of disk space — the failures that cause real downtime almost always give warning first. Our monitoring is built to catch that warning.',
+    eyebrow: '02 — Monitoring & management',
+    title: 'Round-the-clock on Silver and Gold. Never guesswork.',
+    lead: 'A dying hard drive, a failed backup job, a server quietly running out of disk space — the failures that cause real downtime almost always give warning first. Bronze covers monitoring during business hours; Silver and Gold watch around the clock.',
     points: [
-      'Devices, servers, switches and Wi-Fi access points monitored continuously, not just checked in occasionally',
+      'Devices, servers, switches and Wi-Fi access points monitored 24/7 on Silver and Gold, business hours on Bronze',
       'Thresholds tuned to catch real problems early — failing disks, memory pressure, unusual login activity',
-      'Out-of-hours alerting that reaches a person, with escalation if the first alert isn’t acknowledged',
+      'Out-of-hours alerting that reaches a person, with escalation if the first alert isn’t acknowledged (Silver & Gold)',
       'Monthly reporting so you can see device health and patch status without having to ask',
     ],
   },
   {
     id: 'cloud-backup',
     icon: IconCloud,
-    eyebrow: '04 — Cloud & backup',
+    eyebrow: '03 — Cloud & backup',
     title: 'Backups that are proven to work, not just scheduled.',
     lead: 'A backup you’ve never tested is a guess. We configure backups for your servers, devices and cloud data, and we actually run test restores — so the first time you need one isn’t the first time you find out it doesn’t work.',
     points: [
@@ -115,17 +102,17 @@ export default function Services() {
     <>
       <Seo
         title="Services"
-        description="A-IT services: IT support, cybersecurity, monitoring, and cloud & backup — managed IT for UK small and medium businesses."
+        description="A-IT services: cybersecurity, 24/7 monitoring and management, and cloud & backup — a security-first managed provider for UK small and medium businesses."
       />
 
       <section className="border-b border-stone bg-paper-dim py-16 md:py-24">
         <div className="container-x">
           <p className="eyebrow">Services</p>
           <h1 className="mt-3 max-w-[22ch] font-display text-4xl font-semibold leading-[1.05] md:text-5xl">
-            Everything a small business needs from IT. Nothing it doesn't.
+            Everything a small business needs to stay secure. Nothing it doesn't.
           </h1>
           <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-ink/75">
-            Four areas, all included across our tiers to different depths —
+            Three areas, all included across our tiers to different depths —
             see the <a className="link-underline text-petrol" href="/pricing">pricing comparison</a> for exactly what's in Bronze, Silver and Gold.
           </p>
         </div>
@@ -143,11 +130,7 @@ export default function Services() {
             }`}
           >
             <div className="container-x">
-              <div
-                className={`grid gap-10 md:grid-cols-12 md:gap-14 ${
-                  reversed ? '' : ''
-                }`}
-              >
+              <div className="grid gap-10 md:grid-cols-12 md:gap-14">
                 <div className={`md:col-span-3 ${reversed ? 'md:order-2' : ''}`}>
                   <div className="flex items-start md:sticky md:top-24">
                     <div className="text-petrol">
@@ -178,6 +161,35 @@ export default function Services() {
           </section>
         )
       })}
+
+      {/* Optional add-on — deliberately outside the numbered core list */}
+      <section className="border-b border-stone bg-paper py-16 md:py-20">
+        <div className="container-x">
+          <div className="flex flex-col gap-6 rounded-sm border border-stone-dark bg-paper-dim p-8 md:flex-row md:items-start md:gap-8 md:p-10">
+            <div className="text-slate">
+              <IconHelpdesk />
+            </div>
+            <div>
+              <p className="eyebrow">Also available, by arrangement</p>
+              <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
+                Day-to-day IT support
+              </h2>
+              <p className="mt-3 max-w-[62ch] text-ink/75">
+                We're a security-first provider, not a helpdesk by default —
+                general day-to-day IT support isn't included in Bronze,
+                Silver or Gold. If you want that alongside your security
+                cover, it's something we can scope and price separately for
+                your business.
+              </p>
+              <div className="mt-5">
+                <Button to="/contact" variant="outline">
+                  Ask about adding support
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-ink py-20 text-paper md:py-24">
         <div className="container-x flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">

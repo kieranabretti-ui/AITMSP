@@ -1,8 +1,11 @@
 # A-IT marketing website
 
-Managed IT support and cybersecurity marketing site for A-IT (UK SMB
-audience). React + Vite + Tailwind, five pages (Home, Services, Pricing,
-About, Contact), fully responsive.
+Managed cybersecurity and monitoring marketing site for A-IT (UK SMB
+audience). A-IT is security-first — day-to-day IT helpdesk support is
+not included in any package and is only offered by separate
+arrangement (see the "Also available" note on the Services page).
+React + Vite + Tailwind, five pages (Home, Services, Pricing, About,
+Contact), fully responsive.
 
 ## Stack
 
@@ -39,8 +42,8 @@ real content. In summary:
 - **Logo** — `src/components/Logo.jsx` is a typographic wordmark. Swap
   in a real logo file if one exists.
 - **Pricing page & table** (`src/pages/Pricing.jsx`,
-  `src/lib/pricing.js`) — confirm exact SLA response times, contract
-  minimum term, and any onboarding fee.
+  `src/lib/pricing.js`) — confirm the exact priority incident response
+  time for Gold, contract minimum term, and any onboarding fee.
 - **About page** (`src/pages/About.jsx`) — founding year, team
   size/founder note, onsite service radius.
 - **Contact page** (`src/pages/Contact.jsx`) — the form is a working

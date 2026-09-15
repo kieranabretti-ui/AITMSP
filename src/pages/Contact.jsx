@@ -53,7 +53,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact"
-        description="Get in touch with A-IT for managed IT support and cybersecurity. UK-based team, business hours support."
+        description="Get in touch with A-IT for managed cybersecurity and monitoring. UK-based team, business hours contact."
       />
 
       <section className="border-b border-stone py-16 md:py-24">
@@ -198,9 +198,9 @@ export default function Contact() {
               <div>
                 <p className="eyebrow">Existing client?</p>
                 <p className="mt-1 text-ink/85">
-                  Please raise a ticket through your usual support channel
-                  rather than this form — it reaches our sales inbox, not
-                  the helpdesk.
+                  For an active security incident, use the emergency contact
+                  details in your onboarding pack rather than this form — it
+                  reaches our sales inbox, not the monitoring team.
                 </p>
               </div>
             </div>

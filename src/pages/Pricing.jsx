@@ -8,7 +8,7 @@ export default function Pricing() {
     <>
       <Seo
         title="Pricing"
-        description="Simple per-device pricing for managed IT support and cybersecurity: Bronze £8, Silver £15, Gold £18 per device per month. See what's included and estimate your cost."
+        description="Simple per-device pricing for managed cybersecurity and monitoring: Bronze £8, Silver £15, Gold £18 per device per month. 24/7 monitoring on Silver and Gold — see what's included and estimate your cost."
       />
 
       <section className="border-b border-stone bg-paper-dim py-16 md:py-24">

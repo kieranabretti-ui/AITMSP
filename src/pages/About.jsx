@@ -7,7 +7,7 @@ export default function About() {
     <>
       <Seo
         title="About"
-        description="A-IT is a small, UK-based managed IT and cybersecurity team. Here's how we work and why we set it up this way."
+        description="A-IT is a small, UK-based managed cybersecurity team. Here's how we work and why we set it up this way."
       />
 
       <section className="border-b border-stone py-16 md:py-24">
@@ -16,7 +16,7 @@ export default function About() {
             <div className="md:col-span-8">
               <p className="eyebrow">About</p>
               <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.05] md:text-5xl">
-                Most IT support is built around the provider, not the client. We built it the other way round.
+                Most security is sold as an add-on to a helpdesk contract. We built it the other way round.
               </h1>
             </div>
           </div>
@@ -29,25 +29,28 @@ export default function About() {
             <div className="space-y-6 md:col-span-7 md:col-start-1">
               <p className="font-display text-2xl leading-snug text-ink/90 md:text-[1.65rem]">
                 A-IT started because too many small businesses were stuck
-                choosing between IT support that’s too slow to matter and
-                enterprise security tooling priced for companies ten times
-                their size.
+                choosing between enterprise security tooling priced for
+                companies ten times their size, and managed providers who
+                only take security seriously once you've bought a helpdesk
+                contract you didn't need.
               </p>
               <p className="leading-relaxed text-ink/75">
                 Neither made sense. A 40-person company doesn’t need a
                 27-page security policy nobody reads — it needs its laptops
-                patched, its backups tested, and someone to answer the
-                phone when an invoice looks like it might be a scam. So
-                that’s what we built: support and cybersecurity scoped to
-                what a small or medium business actually runs on, priced
-                simply enough that you can work out your bill without a
-                spreadsheet.
+                patched, its backups tested, and someone watching for the
+                invoice that looks like it might be a scam. So that’s what
+                we built: monitoring and cybersecurity scoped to what a
+                small or medium business actually runs on, priced simply
+                enough that you can work out your bill without a
+                spreadsheet. We're upfront that day-to-day helpdesk support
+                isn't part of the package — it dilutes what we're actually
+                good at, so we'd rather scope it separately if you need it.
               </p>
               <p className="leading-relaxed text-ink/75">
-                We’re a small team by design. If you call, you’ll
-                usually end up speaking to someone who already knows your
-                setup, not a first-line script-reader whose job is to
-                escalate you elsewhere. That’s slower to scale than a
+                We’re a small team by design. If something trips an alert,
+                you’ll usually end up dealing with someone who already
+                knows your setup, not a first-line script-reader whose job
+                is to escalate you elsewhere. That’s slower to scale than a
                 call-centre model — it’s also the reason clients stay.
               </p>
               <div className="pt-2">
@@ -79,8 +82,8 @@ export default function About() {
               <div>
                 <p className="eyebrow">Coverage</p>
                 <p className="mt-1 text-ink/85">
-                  Remote support UK-wide, onsite visits within
-                  [PLACEHOLDER: confirm onsite service radius]
+                  Remote monitoring and management UK-wide
+                  [PLACEHOLDER: confirm onsite availability and service radius]
                 </p>
               </div>
             </div>
@@ -106,12 +109,12 @@ export default function About() {
             </div>
             <div className="border-t-2 border-brass pt-5">
               <h3 className="font-display text-xl font-semibold">
-                Let a ticket go quiet
+                Let an alert go unowned
               </h3>
               <p className="mt-2 leading-relaxed text-ink/70">
-                Every open issue has an owner. If something’s taking
-                longer than expected, you’ll hear that from us before you
-                have to ask.
+                Every alert and open issue has a named owner. If something’s
+                taking longer than expected to resolve, you’ll hear that
+                from us before you have to ask.
               </p>
             </div>
             <div className="border-t-2 border-brass pt-5">

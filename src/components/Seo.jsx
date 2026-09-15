@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 export default function Seo({ title, description }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} — A-IT` : 'A-IT — Managed IT Support & Cybersecurity for UK Businesses'
+    const fullTitle = title ? `${title} — A-IT` : 'A-IT — Managed Cybersecurity & Monitoring for UK Businesses'
     document.title = fullTitle
 
     if (description) {

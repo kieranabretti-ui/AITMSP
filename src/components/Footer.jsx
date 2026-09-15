@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <Logo dark />
           <p className="mt-4 max-w-[30ch] text-[15px] leading-relaxed text-paper/65">
-            Managed IT support and cybersecurity for small and medium
+            Managed cybersecurity and monitoring for small and medium
             businesses across the UK.
           </p>
         </div>

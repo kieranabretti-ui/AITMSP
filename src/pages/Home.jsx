@@ -4,33 +4,27 @@ import PricingCalculator from '../components/PricingCalculator.jsx'
 import { Link } from 'react-router-dom'
 
 const TRUST_SIGNALS = [
-  { label: 'UK-based helpdesk', detail: 'No offshore call queue' },
+  { label: 'UK-based security team', detail: 'No outsourced SOC' },
   { label: 'Fixed price per device', detail: 'One line on the invoice' },
-  { label: 'Monitoring from day one', detail: 'Included in every tier' },
+  { label: '24/7 monitoring on Silver & Gold', detail: 'Not just business hours' },
   { label: '[PLACEHOLDER: Cyber Essentials Plus]', detail: 'Certification to be confirmed' },
 ]
 
 const SERVICES = [
   {
     n: '01',
-    title: 'IT support',
-    body: 'A helpdesk that answers, remote and onsite fixes, and someone who already knows your setup when you call.',
-    to: '/services#it-support',
-  },
-  {
-    n: '02',
     title: 'Cybersecurity',
     body: 'Endpoint protection, patching and monitored threat detection, sized to how much risk your business actually carries.',
     to: '/services#cybersecurity',
   },
   {
-    n: '03',
-    title: 'Monitoring',
-    body: 'Devices, servers and network kit watched around the clock, with alerts that reach a person before your team notices anything wrong.',
+    n: '02',
+    title: 'Monitoring & management',
+    body: 'Devices, servers and network kit watched around the clock on Silver and Gold, with alerts that reach a person before your team notices anything wrong.',
     to: '/services#monitoring',
   },
   {
-    n: '04',
+    n: '03',
     title: 'Cloud & backup',
     body: "Backups that are actually tested, and cloud accounts (Microsoft 365, Google Workspace) configured so a lost laptop isn't a lost business.",
     to: '/services#cloud-backup',
@@ -40,16 +34,16 @@ const SERVICES = [
 export default function Home() {
   return (
     <>
-      <Seo description="A-IT is a UK managed IT support and cybersecurity provider for small and medium businesses. Proactive monitoring, helpdesk support and cybersecurity from £8 per device per month." />
+      <Seo description="A-IT is a UK managed cybersecurity and monitoring provider for small and medium businesses. Proactive protection, patching and 24/7 monitoring on Silver and Gold, from £8 per device per month." />
 
       {/* Hero — asymmetric, off-center split */}
       <section className="relative overflow-hidden border-b border-stone bg-paper-dim">
         <div className="bg-grid-motif pointer-events-none absolute inset-0 opacity-60" />
         <div className="container-x relative grid gap-12 py-20 md:grid-cols-12 md:py-28">
           <div className="md:col-span-7">
-            <p className="eyebrow">Managed IT &amp; cybersecurity for UK SMBs</p>
+            <p className="eyebrow">Cybersecurity &amp; managed monitoring for UK SMBs</p>
             <h1 className="mt-4 max-w-[18ch] font-display text-[2.75rem] font-semibold leading-[1.05] tracking-tightish md:text-6xl">
-              Your IT, handled before it becomes a problem.
+              Your security, handled before it becomes a problem.
             </h1>
             <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-ink/75 md:text-xl">
               A-IT monitors, patches and protects the devices your business
@@ -121,11 +115,13 @@ export default function Home() {
             <div className="md:col-span-4">
               <p className="eyebrow">What we do</p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
-                Four things, done properly.
+                Three things, done properly.
               </h2>
               <p className="mt-4 max-w-[38ch] text-ink/70">
-                We don't sell add-ons you don't need. Everything below is
-                core to keeping a small business running and secure.
+                We're a security-first provider. Everything below is core
+                to keeping a small business protected — day-to-day
+                helpdesk support isn't bundled in, but it's something we
+                can scope alongside your cover if you need it.
               </p>
             </div>
 
