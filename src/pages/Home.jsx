@@ -7,7 +7,7 @@ const TRUST_SIGNALS = [
   { label: 'UK-based security team', detail: 'No outsourced SOC' },
   { label: 'Fixed price per device', detail: 'One line on the invoice' },
   { label: '24/7 monitoring on Silver & Gold', detail: 'Not just business hours' },
-  { label: '[PLACEHOLDER: Cyber Essentials Plus]', detail: 'Certification to be confirmed' },
+  { label: '1–10 working day onboarding', detail: 'From signed agreement to full coverage' },
 ]
 
 const SERVICES = [
