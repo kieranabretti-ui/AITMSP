@@ -37,10 +37,20 @@ export default function Terms() {
                 These terms cover your use of this website only — they are
                 not the contract for A-IT's managed IT and cybersecurity
                 services. If you become a client, that relationship is
-                governed by a separate signed service agreement
-                [PLACEHOLDER: link or reference the actual services
-                contract once it exists], which takes precedence over
-                anything on this site in the event of a conflict.
+                governed by a separate signed{' '}
+                <a
+                  className="link-underline text-petrol"
+                  href="/A-IT-Managed-Services-Agreement.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Managed IT Services Agreement
+                </a>
+                , which takes precedence over anything on this site in the
+                event of a conflict. The linked copy is a working template —
+                some terms (notice periods, response-time credits) are still
+                marked for confirmation, and it hasn't yet been reviewed by a
+                solicitor.
               </p>
             </div>
 
