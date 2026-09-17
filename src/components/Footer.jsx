@@ -4,8 +4,9 @@ import { BUSINESS } from '../lib/business.js'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-stone bg-ink text-paper/90">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="relative overflow-hidden border-t border-stone bg-ink text-paper/90">
+      <div className="bg-grid-motif-dark pointer-events-none absolute inset-0 opacity-70" />
+      <div className="container-x relative grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo dark />
           <p className="mt-4 max-w-[30ch] text-[15px] leading-relaxed text-paper/65">

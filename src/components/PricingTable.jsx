@@ -10,20 +10,17 @@ function Check({ on }) {
     )
   }
   return (
-    <svg
-      className="mx-auto h-5 w-5 text-petrol"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 10.5l3.5 3.5L16 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <span className="mx-auto flex h-5 w-5 items-center justify-center rounded-full bg-petrol">
+      <svg className="h-3 w-3 text-paper" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d="M4 10.5l3.5 3.5L16 6"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
   )
 }
 
@@ -33,8 +30,8 @@ export default function PricingTable() {
       <p className="mb-3 font-mono text-xs uppercase tracking-wideish text-slate sm:hidden">
         Swipe to compare all tiers →
       </p>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-left">
+      <div className="overflow-x-auto rounded-[10px] border border-stone bg-white/50 p-6 md:p-8">
+        <table className="w-full min-w-[600px] border-collapse text-left">
         <caption className="sr-only">Feature comparison across Bronze, Silver and Gold plans</caption>
         <thead>
           <tr>

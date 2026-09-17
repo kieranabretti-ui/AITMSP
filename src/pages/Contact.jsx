@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Seo from '../components/Seo.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { BUSINESS } from '../lib/business.js'
 
 // TODO before launch: point this at a real submission endpoint
@@ -67,9 +68,9 @@ export default function Contact() {
 
       <section className="py-16 md:py-20">
         <div className="container-x grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-7">
+          <Reveal className="md:col-span-7" as="div">
             {status === 'sent' ? (
-              <div className="rounded-sm border border-petrol/30 bg-petrol/[0.06] p-8">
+              <div className="rounded-[10px] border border-petrol/30 bg-petrol/[0.06] p-8">
                 <h2 className="font-display text-2xl font-semibold text-ink">
                   Message received.
                 </h2>
@@ -84,7 +85,7 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form noValidate onSubmit={handleSubmit} className="space-y-6">
+              <form noValidate onSubmit={handleSubmit} className="space-y-6 rounded-[10px] border border-stone bg-white/60 p-6 md:p-8">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Field label="Name" htmlFor="name" error={errors.name} required>
                     <input
@@ -158,7 +159,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-7 py-3.5 text-[15px] font-medium text-paper transition-colors duration-200 hover:bg-petrol-dark disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-ink px-7 py-3.5 text-[15px] font-medium text-paper transition-colors duration-200 hover:bg-petrol-dark disabled:opacity-60"
                 >
                   {status === 'submitting' ? 'Sending…' : 'Send message'}
                 </button>
@@ -171,23 +172,23 @@ export default function Contact() {
                 </p>
               </form>
             )}
-          </div>
+          </Reveal>
 
-          <div className="md:col-span-4 md:col-start-9">
-            <div className="space-y-8 border-t border-stone pt-8 md:border-t-0 md:border-l md:border-stone md:pl-10 md:pt-0">
-              <div>
+          <Reveal delay={120} className="md:col-span-4 md:col-start-9" as="div">
+            <div className="grid gap-3">
+              <div className="bento-tile p-5">
                 <p className="eyebrow">Call</p>
                 <a href={BUSINESS.phoneHref} className="link-underline mt-1 block font-display text-xl font-semibold text-ink">
                   {BUSINESS.phone}
                 </a>
               </div>
-              <div>
+              <div className="bento-tile p-5">
                 <p className="eyebrow">Email</p>
                 <a href={BUSINESS.emailHref} className="link-underline mt-1 block text-ink/85">
                   {BUSINESS.email}
                 </a>
               </div>
-              <div>
+              <div className="bento-tile p-5">
                 <p className="eyebrow">Hours</p>
                 <p className="mt-1 text-ink/85">{BUSINESS.hours}</p>
                 <p className="mt-1 text-sm text-slate">
@@ -195,7 +196,7 @@ export default function Contact() {
                   tiers regardless of office hours.
                 </p>
               </div>
-              <div>
+              <div className="bento-tile p-5">
                 <p className="eyebrow">Existing client?</p>
                 <p className="mt-1 text-ink/85">
                   For an active security incident, use the emergency contact
@@ -204,7 +205,7 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
@@ -229,7 +230,7 @@ function Field({ label, htmlFor, error, required, children }) {
 }
 
 function inputClass(error) {
-  return `w-full rounded-[3px] border bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-slate/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-petrol ${
+  return `w-full rounded-[6px] border bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-slate/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-petrol ${
     error ? 'border-[#9A4128]' : 'border-stone-dark'
   }`
 }

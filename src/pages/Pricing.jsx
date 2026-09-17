@@ -1,5 +1,6 @@
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
+import Reveal from '../components/Reveal.jsx'
 import PricingCalculator from '../components/PricingCalculator.jsx'
 import PricingTable from '../components/PricingTable.jsx'
 import { ADDONS, formatGBP } from '../lib/pricing.js'
@@ -28,47 +29,57 @@ export default function Pricing() {
 
       <section className="py-16 md:py-20">
         <div className="container-x">
-          <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Estimate your monthly cost
-          </h2>
-          <p className="mt-2 max-w-[56ch] text-ink/70">
-            Move the slider or type a device count — every laptop, desktop
-            and server you'd like covered.
-          </p>
-          <div className="mt-8">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold md:text-3xl">
+              Estimate your monthly cost
+            </h2>
+            <p className="mt-2 max-w-[56ch] text-ink/70">
+              Move the slider or type a device count — every laptop, desktop
+              and server you'd like covered.
+            </p>
+          </Reveal>
+          <Reveal delay={100} className="mt-8">
             <PricingCalculator />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="border-t border-stone py-16 md:py-20">
         <div className="container-x">
-          <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Compare what's included
-          </h2>
-          <p className="mt-2 max-w-[56ch] text-ink/70">
-            Each tier builds on the one before it — Silver includes
-            everything in Bronze, Gold includes everything in Silver.
-          </p>
-          <div className="mt-8">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold md:text-3xl">
+              Compare what's included
+            </h2>
+            <p className="mt-2 max-w-[56ch] text-ink/70">
+              Each tier builds on the one before it — Silver includes
+              everything in Bronze, Gold includes everything in Silver.
+            </p>
+          </Reveal>
+          <Reveal delay={100} className="mt-8">
             <PricingTable />
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section id="addons" className="scroll-mt-[72px] border-t border-stone bg-paper-dim py-16 md:py-20">
+      <section id="addons" className="scroll-mt-[88px] border-t border-stone bg-paper-dim py-16 md:py-20">
         <div className="container-x">
-          <p className="eyebrow">Add-ons</p>
-          <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
-            Priced by the job, not the tier
-          </h2>
-          <p className="mt-2 max-w-[56ch] text-ink/70">
-            Outside the monthly plans, on top of any tier — pay for what
-            you actually use.
-          </p>
-          <div className="mt-10 grid gap-x-10 gap-y-10 md:grid-cols-2">
-            {ADDONS.map((addon) => (
-              <div key={addon.id} className="border-t-2 border-brass pt-6">
+          <Reveal>
+            <p className="eyebrow">Add-ons</p>
+            <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+              Priced by the job, not the tier
+            </h2>
+            <p className="mt-2 max-w-[56ch] text-ink/70">
+              Outside the monthly plans, on top of any tier — pay for what
+              you actually use.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {ADDONS.map((addon, i) => (
+              <Reveal
+                key={addon.id}
+                delay={100 + i * 90}
+                className="corner-frame rounded-[10px] border border-stone bg-white/60 p-7"
+              >
                 <p className="font-mono text-xs uppercase tracking-wideish text-slate">
                   {addon.cadence}
                 </p>
@@ -82,14 +93,15 @@ export default function Pricing() {
                 <p className="mt-2 max-w-[42ch] text-sm leading-relaxed text-slate">
                   {addon.detail}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-stone bg-ink py-16 text-paper md:py-20">
-        <div className="container-x grid gap-10 md:grid-cols-2">
+      <section className="relative overflow-hidden border-t border-stone bg-ink py-16 text-paper md:py-20">
+        <div className="bg-grid-motif-dark pointer-events-none absolute inset-0 opacity-70" />
+        <div className="container-x relative grid gap-10 md:grid-cols-2">
           <div>
             <h2 className="font-display text-2xl font-semibold md:text-3xl">
               Not sure which tier fits?

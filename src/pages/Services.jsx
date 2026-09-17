@@ -1,9 +1,10 @@
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
+import Reveal from '../components/Reveal.jsx'
 
 function IconShield() {
   return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16" aria-hidden="true">
+    <svg viewBox="0 0 64 64" className="h-14 w-14" aria-hidden="true">
       <path
         d="M32 8l18 6v14c0 14-9.5 22.5-18 28-8.5-5.5-18-14-18-28V14l18-6z"
         fill="none"
@@ -17,7 +18,7 @@ function IconShield() {
 
 function IconRadar() {
   return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16" aria-hidden="true">
+    <svg viewBox="0 0 64 64" className="h-14 w-14" aria-hidden="true">
       <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.25" />
       <circle cx="32" cy="32" r="13" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
       <circle cx="32" cy="32" r="2.5" fill="currentColor" />
@@ -29,7 +30,7 @@ function IconRadar() {
 
 function IconCloud() {
   return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16" aria-hidden="true">
+    <svg viewBox="0 0 64 64" className="h-14 w-14" aria-hidden="true">
       <path
         d="M20 42a10 10 0 01-1-19.9A12 12 0 0143 18a9 9 0 015 16.3"
         fill="none"
@@ -118,82 +119,80 @@ export default function Services() {
         </div>
       </section>
 
-      {SECTIONS.map((section, i) => {
-        const Icon = section.icon
-        const reversed = i % 2 === 1
-        return (
-          <section
-            key={section.id}
-            id={section.id}
-            className={`scroll-mt-[72px] border-b border-stone py-16 md:py-24 ${
-              reversed ? 'bg-paper-dim' : 'bg-paper'
-            }`}
-          >
-            <div className="container-x">
-              <div className="grid gap-10 md:grid-cols-12 md:gap-14">
-                <div className={`md:col-span-3 ${reversed ? 'md:order-2' : ''}`}>
-                  <div className="flex items-start md:sticky md:top-24">
+      <section className="py-16 md:py-20">
+        <div className="container-x flex flex-col gap-4">
+          {SECTIONS.map((section, i) => {
+            const Icon = section.icon
+            return (
+              <Reveal
+                key={section.id}
+                delay={i * 80}
+                as="div"
+                id={section.id}
+                className="corner-frame scroll-mt-[88px] rounded-[14px] border border-stone bg-white/60 p-8 md:p-12"
+              >
+                <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+                  <div className="md:col-span-3">
                     <div className="text-petrol">
                       <Icon />
                     </div>
+                    <p className="eyebrow mt-4">{section.eyebrow}</p>
+                  </div>
+
+                  <div className="md:col-span-9">
+                    <h2 className="max-w-[24ch] font-display text-3xl font-semibold leading-tight md:text-4xl">
+                      {section.title}
+                    </h2>
+                    <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-ink/75">
+                      {section.lead}
+                    </p>
+                    <ul className="mt-8 grid max-w-[70ch] gap-x-8 gap-y-4 sm:grid-cols-2">
+                      {section.points.map((p) => (
+                        <li key={p} className="flex gap-3 border-t border-stone pt-4 text-[15px] leading-relaxed text-ink/85">
+                          <span aria-hidden="true" className="mt-1 text-brass">＋</span>
+                          <span>{p}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
+              </Reveal>
+            )
+          })}
 
-                <div className={`md:col-span-9 ${reversed ? 'md:order-1' : ''}`}>
-                  <p className="eyebrow">{section.eyebrow}</p>
-                  <h2 className="mt-3 max-w-[24ch] font-display text-3xl font-semibold leading-tight md:text-4xl">
-                    {section.title}
-                  </h2>
-                  <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-ink/75">
-                    {section.lead}
-                  </p>
-                  <ul className="mt-8 grid max-w-[70ch] gap-x-8 gap-y-4 sm:grid-cols-2">
-                    {section.points.map((p) => (
-                      <li key={p} className="flex gap-3 border-t border-stone pt-4 text-[15px] leading-relaxed text-ink/85">
-                        <span aria-hidden="true" className="mt-1 text-brass">＋</span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
+          {/* Optional add-on — visually distinct from the three core tiles */}
+          <Reveal delay={SECTIONS.length * 80} className="rounded-[14px] border border-dashed border-brass-dark/50 bg-paper-dim p-8 md:p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
+              <div className="text-slate">
+                <IconHelpdesk />
+              </div>
+              <div>
+                <p className="eyebrow">Also available, priced separately</p>
+                <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
+                  Day-to-day IT support
+                </h2>
+                <p className="mt-3 max-w-[62ch] text-ink/75">
+                  We're a security-first provider, not a helpdesk by default —
+                  general day-to-day IT support isn't included in Bronze,
+                  Silver or Gold. Two ways to add it: pay-as-you-go break-fix
+                  callouts from £60/hour, or Premium SLA ticket support from
+                  £10 per device a month (Mon–Fri, 8am–5pm), on top of any
+                  tier.
+                </p>
+                <div className="mt-5">
+                  <Button to="/pricing#addons" variant="outline">
+                    See add-on pricing
+                  </Button>
                 </div>
               </div>
             </div>
-          </section>
-        )
-      })}
-
-      {/* Optional add-on — deliberately outside the numbered core list */}
-      <section className="border-b border-stone bg-paper py-16 md:py-20">
-        <div className="container-x">
-          <div className="flex flex-col gap-6 rounded-sm border border-stone-dark bg-paper-dim p-8 md:flex-row md:items-start md:gap-8 md:p-10">
-            <div className="text-slate">
-              <IconHelpdesk />
-            </div>
-            <div>
-              <p className="eyebrow">Also available, priced separately</p>
-              <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
-                Day-to-day IT support
-              </h2>
-              <p className="mt-3 max-w-[62ch] text-ink/75">
-                We're a security-first provider, not a helpdesk by default —
-                general day-to-day IT support isn't included in Bronze,
-                Silver or Gold. Two ways to add it: pay-as-you-go break-fix
-                callouts from £60/hour, or Premium SLA ticket support from
-                £10 per device a month (Mon–Fri, 8am–5pm), on top of any
-                tier.
-              </p>
-              <div className="mt-5">
-                <Button to="/pricing#addons" variant="outline">
-                  See add-on pricing
-                </Button>
-              </div>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-paper md:py-24">
-        <div className="container-x flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+      <section className="relative overflow-hidden bg-ink py-20 text-paper md:py-24">
+        <div className="bg-grid-motif-dark pointer-events-none absolute inset-0 opacity-70" />
+        <div className="container-x relative flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="eyebrow !text-brass-light">Ready when you are</p>
             <h2 className="mt-3 max-w-[22ch] font-display text-3xl font-semibold leading-tight md:text-4xl">

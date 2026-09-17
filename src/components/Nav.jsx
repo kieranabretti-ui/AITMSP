@@ -19,20 +19,31 @@ export default function Nav() {
   }, [location.pathname])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone/70 bg-paper/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-stone/70 bg-paper/90 backdrop-blur-md">
       <div className="container-x flex h-[72px] items-center justify-between">
-        <NavLink to="/" className="shrink-0" aria-label="A-IT home">
-          <Logo />
-        </NavLink>
+        <div className="flex items-center gap-3">
+          <NavLink to="/" className="shrink-0" aria-label="A-IT home">
+            <Logo />
+          </NavLink>
+          <span className="hidden items-center gap-1.5 rounded-full border border-stone-dark bg-white/60 px-2.5 py-1 sm:flex">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-petrol opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-petrol" />
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-wideish text-slate">
+              Monitored
+            </span>
+          </span>
+        </div>
 
-        <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `link-underline pb-1 text-[15px] font-medium ${
-                  isActive ? 'text-petrol' : 'text-ink/80 hover:text-ink'
+                `rounded-full px-4 py-2 text-[15px] font-medium transition-colors duration-200 ${
+                  isActive ? 'bg-ink text-paper' : 'text-ink/75 hover:bg-ink/5 hover:text-ink'
                 }`
               }
             >
@@ -87,7 +98,9 @@ export default function Nav() {
                 <NavLink
                   to={link.to}
                   className={({ isActive }) =>
-                    `block py-3 text-lg font-medium ${isActive ? 'text-petrol' : 'text-ink'}`
+                    `block rounded-lg px-3 py-3 text-lg font-medium ${
+                      isActive ? 'bg-ink text-paper' : 'text-ink'
+                    }`
                   }
                 >
                   {link.label}

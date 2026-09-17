@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-[3px] font-body font-medium transition-all duration-200 ease-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
+  'inline-flex items-center justify-center gap-2 rounded-[8px] font-body font-medium transition-all duration-200 ease-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98]'
 
 const variants = {
   primary: 'bg-ink text-paper hover:bg-petrol-dark px-6 py-3 text-[15px]',

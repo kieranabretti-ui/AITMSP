@@ -19,7 +19,7 @@
 
   h1, h2, h3, h4 {
     font-family: theme('fontFamily.display');
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   a {
@@ -65,5 +65,45 @@
       linear-gradient(to right, rgba(244, 241, 233, 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(244, 241, 233, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
+  }
+
+  .bento-tile {
+    @apply rounded-[10px] border border-stone bg-white/60 transition-all duration-300 ease-soft;
+  }
+
+  /* Understated "scan corner" motif — a nod to monitoring/targeting, never neon */
+  .corner-frame {
+    position: relative;
+  }
+  .corner-frame::before,
+  .corner-frame::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: theme('colors.brass.DEFAULT');
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .corner-frame::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-radius: 3px 0 0 0;
+  }
+  .corner-frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-radius: 0 0 3px 0;
+  }
+  .corner-frame:hover::before,
+  .corner-frame:hover::after,
+  .corner-frame:focus-within::before,
+  .corner-frame:focus-within::after {
+    opacity: 1;
   }
 }
