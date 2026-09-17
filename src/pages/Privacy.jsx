@@ -50,10 +50,8 @@ export default function Privacy() {
                   <strong>Contact form submissions</strong> — name, email,
                   phone number (optional), company name (optional), an
                   approximate device count, and whatever you write in the
-                  message field. [PLACEHOLDER: the form is not yet wired to
-                  a live inbox — update this section once it is, naming the
-                  actual destination (email inbox, CRM, etc.) and how long
-                  submissions are kept.]
+                  message field. Submitted via Netlify Forms and stored
+                  there for 6 months after submission.
                 </li>
                 <li>
                   <strong>Analytics data</strong> — if you accept analytics
@@ -113,24 +111,27 @@ export default function Privacy() {
               <p className="mt-3 leading-relaxed">
                 This website is hosted by Netlify, Inc., who process
                 standard web server logs (IP address, request details) as
-                part of delivering the site. If you accept analytics
-                cookies, usage data is processed by Google as part of
-                Google Analytics, which may transfer data outside the UK
-                — Google's standard contractual clauses cover this
-                transfer. We don't sell personal data, and we don't share
-                contact form submissions with third parties except
-                [PLACEHOLDER: name any CRM, email, or helpdesk tool once
-                the contact form is connected].
+                part of delivering the site, and who also receive and
+                store contact form submissions on our behalf via Netlify
+                Forms. If you accept analytics cookies, usage data is
+                processed by Google as part of Google Analytics, which
+                may transfer data outside the UK — Google's standard
+                contractual clauses cover this transfer. We don't sell
+                personal data, and we don't share contact form
+                submissions with any other third party.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl font-semibold text-ink">How long we keep it</h2>
               <p className="mt-3 leading-relaxed">
-                [PLACEHOLDER: confirm retention periods — e.g. contact
-                form enquiries kept for X months if they don't become a
-                client, analytics data retained per Google Analytics'
-                configured window.]
+                Contact form submissions are kept in Netlify Forms for 6
+                months after submission, then deleted, unless you become
+                a client — in which case relevant details carry into your
+                client record under the separate Managed IT Services
+                Agreement. Analytics data is retained per Google
+                Analytics' configured window (see the cookie table
+                above).
               </p>
             </div>
 
