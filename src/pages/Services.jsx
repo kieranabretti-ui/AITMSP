@@ -66,7 +66,7 @@ const SECTIONS = [
       'Managed endpoint protection and patching across Windows, macOS and common third-party apps',
       'Email security — phishing and spoofing filtering, with SPF, DKIM and DMARC configured properly',
       'Multi-factor authentication rolled out across email, cloud storage and other key systems',
-      '24/7 monitored threat detection with a named response plan, not just an alert nobody reads (Gold)',
+      '24/7 monitored threat detection and endpoint detection & response (EDR), with a named response plan, not just an alert nobody reads (Silver & Gold)',
     ],
   },
   {

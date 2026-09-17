@@ -22,6 +22,8 @@ export const TIERS = [
     features: [
       'Everything in Bronze',
       '24/7 monitored device management',
+      '24/7 monitored cybersecurity (SOC-backed threat detection)',
+      'Advanced endpoint detection and response (EDR)',
       'Extended monitoring — servers, network switches and Wi-Fi',
       'Out-of-hours alerting for critical failures',
       'Monthly backup verification checks',
@@ -36,8 +38,6 @@ export const TIERS = [
     recommended: false,
     features: [
       'Everything in Silver',
-      '24/7 monitored cybersecurity (SOC-backed threat detection)',
-      'Advanced endpoint detection and response (EDR)',
       'Microsoft 365 / Google Workspace protection and backup',
       'Priority incident response [PLACEHOLDER: confirm exact response-time commitment]',
       'Quarterly strategic security review with a named contact',
@@ -69,8 +69,8 @@ export const FEATURE_GROUPS = [
   {
     group: 'Cybersecurity',
     rows: [
-      { label: '24/7 monitored cybersecurity (SOC-backed)', bronze: false, silver: false, gold: true },
-      { label: 'Advanced endpoint detection and response (EDR)', bronze: false, silver: false, gold: true },
+      { label: '24/7 monitored cybersecurity (SOC-backed)', bronze: false, silver: true, gold: true },
+      { label: 'Advanced endpoint detection and response (EDR)', bronze: false, silver: true, gold: true },
       { label: 'Microsoft 365 / Google Workspace protection and backup', bronze: false, silver: false, gold: true },
       { label: 'Annual cybersecurity posture assessment', bronze: false, silver: false, gold: true },
     ],

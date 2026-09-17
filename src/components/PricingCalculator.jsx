@@ -1,14 +1,17 @@
 import { useId, useState } from 'react'
-import { TIERS, monthlyCost, formatGBP } from '../lib/pricing.js'
+import { TIERS, ADDONS, monthlyCost, formatGBP } from '../lib/pricing.js'
 
 const MIN = 1
 const MAX = 250
 const DEFAULT = 12
+const PREMIUM_SLA = ADDONS.find((a) => a.id === 'premium-sla')
 
 export default function PricingCalculator({ compact = false }) {
   const [devices, setDevices] = useState(DEFAULT)
+  const [addPremiumSla, setAddPremiumSla] = useState(false)
   const sliderId = useId()
   const numberId = useId()
+  const slaCheckboxId = useId()
 
   function handleChange(value) {
     const n = Number(value)
@@ -55,9 +58,29 @@ export default function PricingCalculator({ compact = false }) {
         aria-label="Devices slider"
       />
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <label
+        htmlFor={slaCheckboxId}
+        className="mt-6 flex cursor-pointer items-start gap-3 rounded-sm border border-stone-dark bg-white px-4 py-3.5"
+      >
+        <input
+          id={slaCheckboxId}
+          type="checkbox"
+          checked={addPremiumSla}
+          onChange={(e) => setAddPremiumSla(e.target.checked)}
+          className="mt-0.5 h-4 w-4 accent-petrol"
+        />
+        <span>
+          <span className="block text-[15px] font-medium text-ink">
+            Add {PREMIUM_SLA.name} ({formatGBP(PREMIUM_SLA.price)}/device/month)
+          </span>
+          <span className="mt-0.5 block text-sm text-slate">{PREMIUM_SLA.detail}</span>
+        </span>
+      </label>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {TIERS.map((tier) => {
-          const cost = monthlyCost(tier.price, devices)
+          const perDevice = tier.price + (addPremiumSla ? PREMIUM_SLA.price : 0)
+          const cost = monthlyCost(perDevice, devices)
           return (
             <div
               key={tier.id}
@@ -95,6 +118,7 @@ export default function PricingCalculator({ compact = false }) {
                 }`}
               >
                 {formatGBP(tier.price)} per device
+                {addPremiumSla && ` + ${formatGBP(PREMIUM_SLA.price)} Premium SLA`}
               </p>
             </div>
           )
