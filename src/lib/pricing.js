@@ -95,13 +95,13 @@ export const ADDONS = [
     detail: 'Billed in 15-minute increments. £80/hour on weekends.',
   },
   {
-    id: 'ticket-support',
-    name: '2-hour SLA ticket support',
+    id: 'premium-sla',
+    name: 'Premium SLA',
     cadence: 'Monthly, per device',
     price: 10,
     unit: '/device/month',
     detail:
-      'Day-to-day helpdesk tickets with a guaranteed 2-hour response, added on top of any tier. [PLACEHOLDER: confirm whether the 2-hour SLA applies during business hours only or 24/7]',
+      'Day-to-day helpdesk tickets with a guaranteed 2-hour response, Monday to Friday, 8am–5pm. Added on top of any tier.',
   },
 ]
 

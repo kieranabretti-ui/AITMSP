@@ -178,8 +178,9 @@ export default function Services() {
                 We're a security-first provider, not a helpdesk by default —
                 general day-to-day IT support isn't included in Bronze,
                 Silver or Gold. Two ways to add it: pay-as-you-go break-fix
-                callouts from £60/hour, or 2-hour SLA ticket support from
-                £10 per device a month, on top of any tier.
+                callouts from £60/hour, or Premium SLA ticket support from
+                £10 per device a month (Mon–Fri, 8am–5pm), on top of any
+                tier.
               </p>
               <div className="mt-5">
                 <Button to="/pricing#addons" variant="outline">
