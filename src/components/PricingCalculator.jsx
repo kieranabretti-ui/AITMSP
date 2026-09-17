@@ -97,7 +97,7 @@ export default function PricingCalculator({ compact = false }) {
               )}
               <p
                 className={`font-mono text-xs uppercase tracking-wideish ${
-                  tier.recommended ? 'text-paper/70' : 'text-slate'
+                  tier.recommended ? 'text-paper/80' : 'text-slate'
                 }`}
               >
                 {tier.name}
@@ -106,7 +106,7 @@ export default function PricingCalculator({ compact = false }) {
                 {formatGBP(cost)}
                 <span
                   className={`ml-1 font-body text-sm font-normal ${
-                    tier.recommended ? 'text-paper/70' : 'text-slate'
+                    tier.recommended ? 'text-paper/80' : 'text-slate'
                   }`}
                 >
                   /month
@@ -114,7 +114,7 @@ export default function PricingCalculator({ compact = false }) {
               </p>
               <p
                 className={`mt-1 text-xs ${
-                  tier.recommended ? 'text-paper/60' : 'text-slate'
+                  tier.recommended ? 'text-paper/80' : 'text-slate'
                 }`}
               >
                 {formatGBP(tier.price)} per device

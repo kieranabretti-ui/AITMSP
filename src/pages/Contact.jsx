@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Seo from '../components/Seo.jsx'
 import { BUSINESS } from '../lib/business.js'
 
 // TODO before launch: point this at a real submission endpoint
 // (e.g. a serverless function, Formspree, or CRM webhook) and remove
-// the client-side-only simulation below.
+// the client-side-only simulation below. When wired up, keep the spam
+// checks server-side too (client checks alone are trivially bypassed).
 const CONTACT_ENDPOINT = '[PLACEHOLDER: contact form submission endpoint]'
+
+// Minimum time (ms) a human plausibly takes to open the page and fill
+// the form. Bots that submit instantly get caught here.
+const MIN_FILL_TIME_MS = 3000
 
 const initialForm = {
   name: '',
@@ -14,17 +19,38 @@ const initialForm = {
   phone: '',
   devices: '',
   message: '',
+  // Honeypot — left blank by humans, invisible in the layout, but a
+  // plain form field a naive bot will happily fill in.
+  website: '',
 }
 
 function validate(form) {
   const errors = {}
-  if (!form.name.trim()) errors.name = 'Enter your name.'
+  const name = form.name.trim()
+  const message = form.message.trim()
+
+  if (!name) {
+    errors.name = 'Enter your name.'
+  } else if (name.length < 2) {
+    errors.name = 'That name looks too short.'
+  }
+
   if (!form.email.trim()) {
     errors.email = 'Enter an email address.'
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
     errors.email = 'Enter a valid email address.'
   }
-  if (!form.message.trim()) errors.message = 'Tell us a little about what you need.'
+
+  if (form.phone.trim() && !/^[+()\d\s-]{7,20}$/.test(form.phone.trim())) {
+    errors.phone = 'Enter a valid phone number, or leave it blank.'
+  }
+
+  if (!message) {
+    errors.message = 'Tell us a little about what you need.'
+  } else if (message.length < 10) {
+    errors.message = 'A few more details would help — what’s going on?'
+  }
+
   return errors
 }
 
@@ -32,6 +58,7 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | submitting | sent
+  const mountedAt = useRef(Date.now())
 
   function update(field, value) {
     setForm((f) => ({ ...f, [field]: value }))
@@ -43,7 +70,19 @@ export default function Contact() {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
+    const isLikelySpam =
+      form.website.trim().length > 0 || Date.now() - mountedAt.current < MIN_FILL_TIME_MS
+
     setStatus('submitting')
+    if (isLikelySpam) {
+      // Fail open on the UI (don't tip off the bot) but skip the real
+      // send once CONTACT_ENDPOINT is wired up — nothing to skip yet
+      // since this is still a client-side simulation.
+      await new Promise((resolve) => setTimeout(resolve, 400))
+      setStatus('sent')
+      return
+    }
+
     // Simulated submission — see CONTACT_ENDPOINT above.
     await new Promise((resolve) => setTimeout(resolve, 500))
     setStatus('sent')
@@ -85,6 +124,21 @@ export default function Contact() {
               </div>
             ) : (
               <form noValidate onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field — hidden from sighted users and screen
+                    readers, but present in the DOM for bots to fill in. */}
+                <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(e) => update('website', e.target.value)}
+                  />
+                </div>
+
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Field label="Name" htmlFor="name" error={errors.name} required>
                     <input
@@ -116,14 +170,14 @@ export default function Contact() {
                       className={inputClass(errors.email)}
                     />
                   </Field>
-                  <Field label="Phone" htmlFor="phone">
+                  <Field label="Phone" htmlFor="phone" error={errors.phone}>
                     <input
                       id="phone"
                       type="tel"
                       autoComplete="tel"
                       value={form.phone}
                       onChange={(e) => update('phone', e.target.value)}
-                      className={inputClass()}
+                      className={inputClass(errors.phone)}
                     />
                   </Field>
                 </div>
@@ -167,7 +221,10 @@ export default function Contact() {
                   This form is a working demo — it validates and confirms on
                   screen, but isn’t yet wired to an inbox.{' '}
                   <span className="text-brass-dark">{CONTACT_ENDPOINT}</span> needs
-                  connecting before launch.
+                  connecting before launch. Basic spam checks (honeypot
+                  field, fill-time check) run client-side — repeat them
+                  server-side once a real endpoint exists, since anything
+                  client-only can be bypassed.
                 </p>
               </form>
             )}

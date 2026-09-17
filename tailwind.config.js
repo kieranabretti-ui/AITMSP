@@ -22,7 +22,9 @@ export default {
         },
         brass: {
           DEFAULT: '#C08A34',
-          dark: '#9C6E27',
+          // Darkened from #9C6E27 — that value failed WCAG AA (3.98:1) as
+          // small text on paper; #75521C clears 4.5:1 on paper and paper-dim.
+          dark: '#75521C',
           light: '#D9AC63',
         },
         stone: '#DBD3C2',

@@ -4,26 +4,25 @@ import { FEATURE_GROUPS, TIERS, formatGBP } from '../lib/pricing.js'
 function Check({ on }) {
   if (!on) {
     return (
-      <span className="block text-center text-stone-dark" aria-hidden="true">
-        —
+      <span className="block text-center text-slate">
+        <span aria-hidden="true">—</span>
+        <span className="sr-only">Not included</span>
       </span>
     )
   }
   return (
-    <svg
-      className="mx-auto h-5 w-5 text-petrol"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 10.5l3.5 3.5L16 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <span className="block text-center">
+      <svg className="mx-auto h-5 w-5 text-petrol" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d="M4 10.5l3.5 3.5L16 6"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span className="sr-only">Included</span>
+    </span>
   )
 }
 

@@ -12,3 +12,25 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Security headers. Force HTTPS itself is a one-click toggle in the
+# Netlify dashboard (Site configuration → Domain management → HTTPS)
+# once a custom domain and certificate are attached — it isn't
+# something set here. HSTS below reinforces that once HTTPS is live.
+#
+# The CSP is scoped to what this site actually loads (Google Fonts +
+# GA4) — if you add another third-party script/embed later, it needs
+# adding here too, or the browser will silently block it. Check the
+# browser console after deploying to confirm nothing's blocked.
+# `preload` is deliberately left off HSTS: it's a long-term, hard-to-
+# reverse commitment (submitted to browsers' built-in preload list) —
+# only add it once you're certain this domain is HTTPS-only for good.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"

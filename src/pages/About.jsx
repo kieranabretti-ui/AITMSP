@@ -54,8 +54,8 @@ export default function About() {
                 call-centre model — it’s also the reason clients stay.
               </p>
               <div className="pt-2">
-                <Button to="/contact" variant="outline">
-                  Get in touch
+                <Button to="/contact" variant="accent">
+                  Get a quote
                 </Button>
               </div>
             </div>

@@ -101,7 +101,7 @@ export default function Pricing() {
             </p>
             <div className="mt-6">
               <Button to="/contact" variant="accent">
-                Talk to us about your setup
+                Get a quote
               </Button>
             </div>
           </div>

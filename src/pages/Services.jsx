@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
 
@@ -113,7 +114,7 @@ export default function Services() {
           </h1>
           <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-ink/75">
             Three areas, all included across our tiers to different depths —
-            see the <a className="link-underline text-petrol" href="/pricing">pricing comparison</a> for exactly what's in Bronze, Silver and Gold.
+            see the <Link className="link-underline text-petrol" to="/pricing">pricing comparison</Link> for exactly what's in Bronze, Silver and Gold.
           </p>
         </div>
       </section>
@@ -201,11 +202,11 @@ export default function Services() {
             </h2>
           </div>
           <div className="flex shrink-0 gap-4">
-            <Button to="/pricing" variant="accent">
-              Estimate your cost
+            <Button to="/contact" variant="accent">
+              Get a quote
             </Button>
-            <Button to="/contact" variant="outline-light">
-              Talk to us
+            <Button to="/pricing" variant="outline-light">
+              Estimate your cost
             </Button>
           </div>
         </div>

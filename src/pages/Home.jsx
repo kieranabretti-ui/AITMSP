@@ -51,7 +51,7 @@ export default function Home() {
               don't land on your desk on a Tuesday morning.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Button to="/contact" variant="primary">
+              <Button to="/contact" variant="accent">
                 Get a quote
               </Button>
               <Button to="/pricing" variant="ghost">
@@ -75,7 +75,7 @@ export default function Home() {
                   ['04', 'Report', 'A plain-English summary of what happened and what changed'],
                 ].map(([n, k, v]) => (
                   <li key={n} className="flex gap-4 px-5 py-4">
-                    <span className="font-mono text-xs text-petrol-light">{n}</span>
+                    <span className="font-mono text-xs text-brass-light">{n}</span>
                     <div>
                       <p className="font-display text-base font-semibold text-paper">{k}</p>
                       <p className="mt-0.5 text-sm leading-snug text-paper/60">{v}</p>
