@@ -23,6 +23,27 @@ npm run build     # production build to dist/
 npm run preview   # serve the production build locally
 ```
 
+## Deploying to Netlify
+
+`netlify.toml` is already set up — build command `npm run build`,
+publish directory `dist`, Node 20, and a catch-all redirect to
+`index.html` (required for React Router's client-side routes like
+`/pricing` to work on a direct visit or refresh, not just on
+in-app navigation).
+
+To deploy:
+
+1. Push this repo to GitHub (already done if you're reading this from
+   the repo).
+2. In Netlify: **Add new site → Import an existing project** and pick
+   this repo. Netlify will detect `netlify.toml` automatically — no
+   manual build settings needed.
+3. Deploy. No environment variables are required (the site has no
+   backend yet — see the Contact form note below).
+
+There's no CI test/lint step wired up yet; `npm run build` is what
+Netlify runs, and it will fail the deploy if the build breaks.
+
 ## Design system
 
 Colour tokens and font families are defined in `tailwind.config.js`

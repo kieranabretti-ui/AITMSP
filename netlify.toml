@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# React Router uses clean client-side URLs (e.g. /pricing, /services) —
+# without this, a direct visit or refresh on those paths 404s, because
+# Netlify would otherwise only know the physical files in dist/.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
