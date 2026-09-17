@@ -30,19 +30,21 @@ export default {
         slate: '#5B615C',
       },
       fontFamily: {
-        display: ['"Zilla Slab"', 'Georgia', 'serif'],
-        body: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        display: ['"Sora"', 'system-ui', 'sans-serif'],
+        body: ['"Manrope"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       maxWidth: {
         content: '1180px',
       },
       letterSpacing: {
-        tightish: '-0.01em',
+        tightish: '-0.03em',
         wideish: '0.04em',
       },
       boxShadow: {
         card: '0 1px 2px rgba(27, 34, 32, 0.06), 0 8px 24px -12px rgba(27, 34, 32, 0.18)',
+        island: '0 30px 60px -20px rgba(0, 0, 0, 0.45)',
+        glow: '0 0 0 1px rgba(62, 122, 111, 0.35), 0 0 32px -4px rgba(62, 122, 111, 0.45)',
       },
       transitionTimingFunction: {
         soft: 'cubic-bezier(0.16, 1, 0.3, 1)',

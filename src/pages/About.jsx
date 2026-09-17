@@ -10,24 +10,21 @@ export default function About() {
         description="A-IT is a small, UK-based managed cybersecurity team. Here's how we work and why we set it up this way."
       />
 
-      <section className="border-b border-stone py-16 md:py-24">
+      <section className="border-b border-paper/10 py-16 md:py-24">
         <div className="container-x">
-          <div className="grid gap-10 md:grid-cols-12">
-            <div className="md:col-span-8">
-              <p className="eyebrow">About</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.05] md:text-5xl">
-                Most security is sold as an add-on to a helpdesk contract. We built it the other way round.
-              </h1>
-            </div>
-          </div>
+          <p className="eyebrow">About</p>
+          <h1 className="mt-3 max-w-[18ch] font-display text-[clamp(2rem,5.5vw,4rem)] font-semibold leading-[1.05] tracking-tightish">
+            Most security is sold as an add-on to a helpdesk contract.{' '}
+            <span className="text-petrol-light">We built it the other way round.</span>
+          </h1>
         </div>
       </section>
 
       <section className="py-16 md:py-20">
         <div className="container-x">
-          <div className="grid gap-14 md:grid-cols-12">
-            <div className="space-y-6 md:col-span-7 md:col-start-1">
-              <p className="font-display text-2xl leading-snug text-ink/90 md:text-[1.65rem]">
+          <div className="grid gap-10 md:grid-cols-12">
+            <div className="paper-island space-y-6 p-8 md:col-span-7 md:col-start-1 md:p-10">
+              <p className="font-display text-2xl leading-snug text-ink/90 md:text-[1.6rem]">
                 A-IT started because too many small businesses were stuck
                 choosing between enterprise security tooling priced for
                 companies ten times their size, and managed providers who
@@ -54,34 +51,30 @@ export default function About() {
                 call-centre model — it’s also the reason clients stay.
               </p>
               <div className="pt-2">
-                <Button to="/contact" variant="outline">
+                <Button to="/contact" variant="on-paper-outline">
                   Get in touch
                 </Button>
               </div>
             </div>
 
-            <div className="space-y-8 border-t border-stone pt-8 md:col-span-4 md:col-start-9 md:border-t-0 md:border-l md:border-stone md:pl-10 md:pt-0">
-              <div>
+            <div className="grid gap-3 md:col-span-4 md:col-start-9">
+              <div className="rounded-2xl border border-paper/15 bg-ink-soft p-5">
                 <p className="eyebrow">Based</p>
-                <p className="mt-1 text-ink/85">
-                  {BUSINESS.address}
-                </p>
+                <p className="mt-1 text-paper/80">{BUSINESS.address}</p>
               </div>
-              <div>
+              <div className="rounded-2xl border border-paper/15 bg-ink-soft p-5">
                 <p className="eyebrow">Founded</p>
-                <p className="mt-1 text-ink/85">
-                  [PLACEHOLDER: founding year]
-                </p>
+                <p className="mt-1 text-paper/80">[PLACEHOLDER: founding year]</p>
               </div>
-              <div>
+              <div className="rounded-2xl border border-paper/15 bg-ink-soft p-5">
                 <p className="eyebrow">Team</p>
-                <p className="mt-1 text-ink/85">
+                <p className="mt-1 text-paper/80">
                   [PLACEHOLDER: team size / founder bio — kept out of scope for this build]
                 </p>
               </div>
-              <div>
+              <div className="rounded-2xl border border-paper/15 bg-ink-soft p-5">
                 <p className="eyebrow">Coverage</p>
-                <p className="mt-1 text-ink/85">
+                <p className="mt-1 text-paper/80">
                   Remote monitoring and management UK-wide
                   [PLACEHOLDER: confirm onsite availability and service radius]
                 </p>
@@ -91,41 +84,32 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-t border-stone bg-paper-dim py-16 md:py-20">
+      <section className="border-t border-paper/10 py-16 md:py-20">
         <div className="container-x">
           <p className="eyebrow">How we work</p>
           <h2 className="mt-3 max-w-[26ch] font-display text-3xl font-semibold leading-tight md:text-4xl">
             Three things we try never to do.
           </h2>
-          <div className="mt-10 grid gap-x-10 gap-y-10 md:grid-cols-3">
-            <div className="border-t-2 border-brass pt-5">
-              <h3 className="font-display text-xl font-semibold">
-                Bill for jargon
-              </h3>
-              <p className="mt-2 leading-relaxed text-ink/70">
-                If we can’t explain a recommendation in plain English and
-                a reason it matters to your business, we don’t make it.
-              </p>
-            </div>
-            <div className="border-t-2 border-brass pt-5">
-              <h3 className="font-display text-xl font-semibold">
-                Let an alert go unowned
-              </h3>
-              <p className="mt-2 leading-relaxed text-ink/70">
-                Every alert and open issue has a named owner. If something’s
-                taking longer than expected to resolve, you’ll hear that
-                from us before you have to ask.
-              </p>
-            </div>
-            <div className="border-t-2 border-brass pt-5">
-              <h3 className="font-display text-xl font-semibold">
-                Sell you what you don’t need
-              </h3>
-              <p className="mt-2 leading-relaxed text-ink/70">
-                Our tiers exist so you pay for the level of cover that
-                matches your risk — not the biggest package we can quote.
-              </p>
-            </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: 'Bill for jargon',
+                body: 'If we can’t explain a recommendation in plain English and a reason it matters to your business, we don’t make it.',
+              },
+              {
+                title: 'Let an alert go unowned',
+                body: 'Every alert and open issue has a named owner. If something’s taking longer than expected to resolve, you’ll hear that from us before you have to ask.',
+              },
+              {
+                title: 'Sell you what you don’t need',
+                body: 'Our tiers exist so you pay for the level of cover that matches your risk — not the biggest package we can quote.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-brass pt-5">
+                <h3 className="font-display text-xl font-semibold">{item.title}</h3>
+                <p className="mt-2 leading-relaxed text-paper/65">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
