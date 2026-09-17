@@ -5,7 +5,7 @@ import { BUSINESS } from '../lib/business.js'
 export default function Footer() {
   return (
     <footer className="border-t border-stone bg-ink text-paper/90">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
+      <div className="container-x grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo dark />
           <p className="mt-4 max-w-[30ch] text-[15px] leading-relaxed text-paper/65">
@@ -30,14 +30,6 @@ export default function Footer() {
             <li><a className="link-underline hover:text-paper" href={BUSINESS.phoneHref}>{BUSINESS.phone}</a></li>
             <li><a className="link-underline hover:text-paper" href={BUSINESS.emailHref}>{BUSINESS.email}</a></li>
             <li className="text-paper/60">{BUSINESS.hours}</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="eyebrow !text-brass-light">Registered</h3>
-          <ul className="mt-4 space-y-3 text-[15px] text-paper/60">
-            <li>{BUSINESS.address}</li>
-            <li>Company no. {BUSINESS.companyNumber}</li>
           </ul>
         </div>
       </div>
