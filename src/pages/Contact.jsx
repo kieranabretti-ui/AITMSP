@@ -1,16 +1,27 @@
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import { BUSINESS } from '../lib/business.js'
 
-// TODO before launch: point this at a real submission endpoint
-// (e.g. a serverless function, Formspree, or CRM webhook) and remove
-// the client-side-only simulation below. When wired up, keep the spam
-// checks server-side too (client checks alone are trivially bypassed).
-const CONTACT_ENDPOINT = '[PLACEHOLDER: contact form submission endpoint]'
+// Submits via Netlify Forms — Netlify parses the static mirror form in
+// index.html at build time to register the "contact" form, then this
+// POST associates with it. The one step this can't do from code: set
+// the notification recipient in the Netlify dashboard (Site
+// configuration → Forms → Form notifications → Email notification →
+// kieranabretti@outlook.com), since that's account/UI-only.
+// data-netlify-honeypot on the form handles server-side spam
+// rejection; the client-side checks below are a first-pass filter
+// only, not the real defence.
 
 // Minimum time (ms) a human plausibly takes to open the page and fill
 // the form. Bots that submit instantly get caught here.
 const MIN_FILL_TIME_MS = 3000
+
+function encodeFormData(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+}
 
 const initialForm = {
   name: '',
@@ -57,7 +68,7 @@ function validate(form) {
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle') // idle | submitting | sent
+  const [status, setStatus] = useState('idle') // idle | submitting | sent | error
   const mountedAt = useRef(Date.now())
 
   function update(field, value) {
@@ -75,17 +86,25 @@ export default function Contact() {
 
     setStatus('submitting')
     if (isLikelySpam) {
-      // Fail open on the UI (don't tip off the bot) but skip the real
-      // send once CONTACT_ENDPOINT is wired up — nothing to skip yet
-      // since this is still a client-side simulation.
+      // Fail open on the UI (don't tip off the bot) and skip the real
+      // send — Netlify's own honeypot check would reject it anyway if
+      // it did go through.
       await new Promise((resolve) => setTimeout(resolve, 400))
       setStatus('sent')
       return
     }
 
-    // Simulated submission — see CONTACT_ENDPOINT above.
-    await new Promise((resolve) => setTimeout(resolve, 500))
-    setStatus('sent')
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData({ 'form-name': 'contact', ...form }),
+      })
+      if (!response.ok) throw new Error(`Submission failed: ${response.status}`)
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -123,7 +142,25 @@ export default function Contact() {
                 </p>
               </div>
             ) : (
-              <form noValidate onSubmit={handleSubmit} className="space-y-6">
+              <form
+                noValidate
+                name="contact"
+                data-netlify="true"
+                data-netlify-honeypot="website"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {status === 'error' && (
+                  <p className="rounded-sm border border-[#9A4128]/30 bg-[#9A4128]/[0.06] p-4 text-sm text-[#9A4128]" role="alert">
+                    Something went wrong sending that — please try again, or
+                    email us directly at{' '}
+                    <a className="link-underline" href={BUSINESS.emailHref}>
+                      {BUSINESS.email}
+                    </a>
+                    .
+                  </p>
+                )}
+
                 {/* Honeypot field — hidden from sighted users and screen
                     readers, but present in the DOM for bots to fill in. */}
                 <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
@@ -218,13 +255,11 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-slate">
-                  This form is a working demo — it validates and confirms on
-                  screen, but isn’t yet wired to an inbox.{' '}
-                  <span className="text-brass-dark">{CONTACT_ENDPOINT}</span> needs
-                  connecting before launch. Basic spam checks (honeypot
-                  field, fill-time check) run client-side — repeat them
-                  server-side once a real endpoint exists, since anything
-                  client-only can be bypassed.
+                  By sending this you agree to our{' '}
+                  <Link className="link-underline text-petrol" to="/privacy">
+                    Privacy Policy
+                  </Link>
+                  .
                 </p>
               </form>
             )}

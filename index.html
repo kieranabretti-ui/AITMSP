@@ -54,6 +54,22 @@
   </head>
   <body class="bg-paper text-ink font-body antialiased">
     <div id="root"></div>
+
+    <!-- Static mirror of the Contact page form, purely so Netlify's
+         build-time crawler can detect and register it — the real form
+         only exists once React renders, which is too late for that
+         crawler to see. Never shown to a visitor. Field names must
+         stay in sync with src/pages/Contact.jsx. -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="website" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="devices" />
+      <textarea name="message"></textarea>
+      <input type="text" name="website" />
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
