@@ -113,25 +113,27 @@ export default function Privacy() {
                 standard web server logs (IP address, request details) as
                 part of delivering the site, and who also receive and
                 store contact form submissions on our behalf via Netlify
-                Forms. If you accept analytics cookies, usage data is
-                processed by Google as part of Google Analytics, which
-                may transfer data outside the UK — Google's standard
-                contractual clauses cover this transfer. We don't sell
-                personal data, and we don't share contact form
-                submissions with any other third party.
+                Forms. Contact form submissions are also forwarded to
+                Atlassian (Jira), which we use internally to track and
+                action enquiries. If you accept analytics cookies, usage
+                data is processed by Google as part of Google Analytics,
+                which may transfer data outside the UK — Google's
+                standard contractual clauses cover this transfer. We
+                don't sell personal data, and we don't share contact
+                form submissions with any other third party.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl font-semibold text-ink">How long we keep it</h2>
               <p className="mt-3 leading-relaxed">
-                Contact form submissions are kept in Netlify Forms for 6
-                months after submission, then deleted, unless you become
-                a client — in which case relevant details carry into your
-                client record under the separate Managed IT Services
-                Agreement. Analytics data is retained per Google
-                Analytics' configured window (see the cookie table
-                above).
+                Contact form submissions are kept in Netlify Forms and in
+                Jira for 6 months after submission, then deleted, unless
+                you become a client — in which case relevant details
+                carry into your client record under the separate Managed
+                IT Services Agreement. Analytics data is retained per
+                Google Analytics' configured window (see the cookie
+                table above).
               </p>
             </div>
 
