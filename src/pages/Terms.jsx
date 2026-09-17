@@ -22,14 +22,6 @@ export default function Terms() {
 
       <section className="py-16 md:py-20">
         <div className="container-x max-w-[70ch]">
-          <div className="mb-10 rounded-sm border border-brass/40 bg-brass/[0.08] p-5 text-sm leading-relaxed text-ink/80">
-            <strong className="font-semibold">Draft notice:</strong> this
-            covers use of the website only. It is a starting point, not a
-            substitute for review by a solicitor before this site goes
-            live, particularly the sections marked{' '}
-            <span className="text-brass-dark">[PLACEHOLDER]</span>.
-          </div>
-
           <div className="space-y-8 text-ink/80">
             <div>
               <h2 className="font-display text-xl font-semibold text-ink">Scope</h2>
