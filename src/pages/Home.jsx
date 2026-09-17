@@ -54,7 +54,7 @@ export default function Home() {
               <Button to="/contact" variant="accent">
                 Get a quote
               </Button>
-              <Button to="/pricing" variant="ghost">
+              <Button to="#pricing-estimator" variant="ghost">
                 See pricing →
               </Button>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Pricing teaser */}
-      <section className="border-t border-stone bg-paper-dim py-20 md:py-28">
+      <section id="pricing-estimator" className="scroll-mt-[72px] border-t border-stone bg-paper-dim py-20 md:py-28">
         <div className="container-x">
           <div className="max-w-[60ch]">
             <p className="eyebrow">Pricing</p>
