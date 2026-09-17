@@ -125,8 +125,8 @@ export default function PricingCalculator({ compact = false }) {
         })}
       </div>
       <p className="mt-4 text-xs text-slate">
-        Estimates exclude VAT and are billed monthly. Minimum device counts
-        and annual terms may apply — see full terms on request.
+        Billed monthly on a minimum 12-month contract. VAT is not currently
+        charged. See full terms on request.
       </p>
     </div>
   )

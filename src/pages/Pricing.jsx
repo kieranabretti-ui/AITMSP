@@ -111,7 +111,7 @@ export default function Pricing() {
                 Contract terms
               </dt>
               <dd className="mt-1 text-paper/75">
-                [PLACEHOLDER: confirm minimum term — monthly rolling or annual]
+                Billed monthly, on a minimum 12-month contract.
               </dd>
             </div>
             <div>
@@ -119,7 +119,7 @@ export default function Pricing() {
                 Onboarding
               </dt>
               <dd className="mt-1 text-paper/75">
-                [PLACEHOLDER: confirm onboarding fee, if any, and typical setup time]
+                Typically 1–10 working days from signed agreement to full coverage, depending on device count.
               </dd>
             </div>
             <div>
@@ -127,7 +127,7 @@ export default function Pricing() {
                 VAT
               </dt>
               <dd className="mt-1 text-paper/75">
-                All prices shown exclude VAT.
+                VAT is not currently charged on the prices shown.
               </dd>
             </div>
           </dl>

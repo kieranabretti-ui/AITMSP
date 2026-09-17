@@ -45,7 +45,7 @@ export default function Footer() {
       <div className="border-t border-paper/10">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} A-IT. All rights reserved.</p>
-          <p>Prices exclude VAT. See pricing page for full terms.</p>
+          <p>VAT not currently charged. See pricing page for full terms.</p>
         </div>
       </div>
     </footer>
