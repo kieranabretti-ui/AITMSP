@@ -170,20 +170,20 @@ export default function Services() {
               <IconHelpdesk />
             </div>
             <div>
-              <p className="eyebrow">Also available, by arrangement</p>
+              <p className="eyebrow">Also available, priced separately</p>
               <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
                 Day-to-day IT support
               </h2>
               <p className="mt-3 max-w-[62ch] text-ink/75">
                 We're a security-first provider, not a helpdesk by default —
                 general day-to-day IT support isn't included in Bronze,
-                Silver or Gold. If you want that alongside your security
-                cover, it's something we can scope and price separately for
-                your business.
+                Silver or Gold. Two ways to add it: pay-as-you-go break-fix
+                callouts from £60/hour, or 2-hour SLA ticket support from
+                £10 per device a month, on top of any tier.
               </p>
               <div className="mt-5">
-                <Button to="/contact" variant="outline">
-                  Ask about adding support
+                <Button to="/pricing#addons" variant="outline">
+                  See add-on pricing
                 </Button>
               </div>
             </div>

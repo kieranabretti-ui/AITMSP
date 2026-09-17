@@ -85,6 +85,26 @@ export const FEATURE_GROUPS = [
   },
 ]
 
+export const ADDONS = [
+  {
+    id: 'breakfix',
+    name: 'Break-fix callout',
+    cadence: 'Ad hoc',
+    price: 60,
+    unit: '/hour',
+    detail: 'Billed in 15-minute increments. £80/hour on weekends.',
+  },
+  {
+    id: 'ticket-support',
+    name: '2-hour SLA ticket support',
+    cadence: 'Monthly, per device',
+    price: 10,
+    unit: '/device/month',
+    detail:
+      'Day-to-day helpdesk tickets with a guaranteed 2-hour response, added on top of any tier. [PLACEHOLDER: confirm whether the 2-hour SLA applies during business hours only or 24/7]',
+  },
+]
+
 export function monthlyCost(pricePerDevice, deviceCount) {
   const count = Number.isFinite(deviceCount) && deviceCount > 0 ? deviceCount : 0
   return Math.round(pricePerDevice * count * 100) / 100

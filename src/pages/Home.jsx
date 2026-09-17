@@ -116,8 +116,8 @@ export default function Home() {
               <p className="mt-4 max-w-[38ch] text-ink/70">
                 We're a security-first provider. Everything below is core
                 to keeping a small business protected — day-to-day
-                helpdesk support isn't bundled in, but it's something we
-                can scope alongside your cover if you need it.
+                helpdesk support isn't bundled in, but it's available as a
+                priced add-on on top of any tier.
               </p>
             </div>
 

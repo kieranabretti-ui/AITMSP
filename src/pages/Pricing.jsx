@@ -2,6 +2,7 @@ import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
 import PricingCalculator from '../components/PricingCalculator.jsx'
 import PricingTable from '../components/PricingTable.jsx'
+import { ADDONS, formatGBP } from '../lib/pricing.js'
 
 export default function Pricing() {
   return (
@@ -51,6 +52,38 @@ export default function Pricing() {
           </p>
           <div className="mt-8">
             <PricingTable />
+          </div>
+        </div>
+      </section>
+
+      <section id="addons" className="scroll-mt-[72px] border-t border-stone bg-paper-dim py-16 md:py-20">
+        <div className="container-x">
+          <p className="eyebrow">Add-ons</p>
+          <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+            Priced by the job, not the tier
+          </h2>
+          <p className="mt-2 max-w-[56ch] text-ink/70">
+            Outside the monthly plans, on top of any tier — pay for what
+            you actually use.
+          </p>
+          <div className="mt-10 grid gap-x-10 gap-y-10 md:grid-cols-2">
+            {ADDONS.map((addon) => (
+              <div key={addon.id} className="border-t-2 border-brass pt-6">
+                <p className="font-mono text-xs uppercase tracking-wideish text-slate">
+                  {addon.cadence}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-semibold">{addon.name}</h3>
+                <p className="mt-4 font-display text-3xl font-semibold tabular-nums">
+                  {formatGBP(addon.price)}
+                  <span className="ml-1 font-body text-base font-normal text-slate">
+                    {addon.unit}
+                  </span>
+                </p>
+                <p className="mt-2 max-w-[42ch] text-sm leading-relaxed text-slate">
+                  {addon.detail}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
