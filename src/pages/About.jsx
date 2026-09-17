@@ -1,6 +1,5 @@
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
-import { BUSINESS } from '../lib/business.js'
 
 export default function About() {
   return (
@@ -64,26 +63,19 @@ export default function About() {
               <div>
                 <p className="eyebrow">Based</p>
                 <p className="mt-1 text-ink/85">
-                  {BUSINESS.address}
+                  Dorset
                 </p>
               </div>
               <div>
-                <p className="eyebrow">Founded</p>
+                <p className="eyebrow">Founder</p>
                 <p className="mt-1 text-ink/85">
-                  [PLACEHOLDER: founding year]
-                </p>
-              </div>
-              <div>
-                <p className="eyebrow">Team</p>
-                <p className="mt-1 text-ink/85">
-                  [PLACEHOLDER: team size / founder bio — kept out of scope for this build]
+                  Kieran Abretti
                 </p>
               </div>
               <div>
                 <p className="eyebrow">Coverage</p>
                 <p className="mt-1 text-ink/85">
-                  Remote monitoring and management UK-wide
-                  [PLACEHOLDER: confirm onsite availability and service radius]
+                  Covering Dorset and surrounding areas.
                 </p>
               </div>
             </div>
