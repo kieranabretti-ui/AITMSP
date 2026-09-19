@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const TRUST_SIGNALS = [
   { label: 'UK-based security team', detail: 'No outsourced SOC' },
   { label: 'Fixed price per device', detail: 'One line on the invoice' },
-  { label: '24/7 monitoring on Silver & Gold', detail: 'Not just business hours' },
+  { label: '24/7 monitoring on every plan', detail: 'Not just business hours' },
   { label: 'Fast onboarding', detail: '1–10 working days to full coverage' },
 ]
 
@@ -20,13 +20,13 @@ const SERVICES = [
   {
     n: '02',
     title: 'Monitoring & management',
-    body: 'Devices, servers and network kit watched around the clock on Silver and Gold, with alerts that reach a person before your team notices anything wrong.',
+    body: 'Devices, servers and network kit watched around the clock on every plan, with alerts that reach a person before your team notices anything wrong.',
     to: '/services#monitoring',
   },
   {
     n: '03',
     title: 'Cloud & backup',
-    body: 'Backup verification on Silver and Gold, plus Microsoft 365 or Google Workspace data protection and backup on Gold — so a lost laptop or deleted mailbox isn’t a lost business.',
+    body: 'Backup verification on every plan, plus Microsoft 365 or Google Workspace data protection and backup on Gold and Platinum — so a lost laptop or deleted mailbox isn’t a lost business.',
     to: '/services#cloud-backup',
   },
 ]
@@ -34,7 +34,7 @@ const SERVICES = [
 export default function Home() {
   return (
     <>
-      <Seo description="A-IT is a UK managed cybersecurity and monitoring provider for small and medium businesses. Proactive protection, patching and 24/7 monitoring on Silver and Gold, from £8 per device per month." />
+      <Seo description="A-IT is a UK managed cybersecurity and monitoring provider for small and medium businesses. Proactive protection, patching and 24/7 monitoring on every plan, from £15 per device per month." />
 
       {/* Hero — asymmetric, off-center split */}
       <section className="relative overflow-hidden border-b border-stone bg-paper-dim">
@@ -69,7 +69,7 @@ export default function Home() {
               </div>
               <ol className="divide-y divide-paper/10">
                 {[
-                  ['01', 'Monitor', 'Devices and email watched continuously — 24/7 on Silver and Gold'],
+                  ['01', 'Monitor', 'Devices and email watched continuously — 24/7 on every plan'],
                   ['02', 'Detect', 'Alerts triaged the moment something looks wrong, day or night'],
                   ['03', 'Respond', 'A named engineer acts on confirmed threats, not just flags them'],
                   ['04', 'Report', 'A plain-English summary of what happened and what changed'],

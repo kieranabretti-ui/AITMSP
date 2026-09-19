@@ -67,19 +67,19 @@ const SECTIONS = [
       'Managed endpoint protection and patching across Windows, macOS and common third-party apps',
       'Email security — phishing and spoofing filtering, with SPF, DKIM and DMARC configured properly',
       'Multi-factor authentication rolled out across email, cloud storage and other key systems',
-      '24/7 monitored threat detection and endpoint detection & response (EDR), with a named response plan, not just an alert nobody reads (Silver & Gold)',
+      '24/7 monitored threat detection and endpoint detection & response (EDR), with a named response plan, not just an alert nobody reads',
     ],
   },
   {
     id: 'monitoring',
     icon: IconRadar,
     eyebrow: '02 — Monitoring & management',
-    title: 'Round-the-clock on Silver and Gold. Never guesswork.',
-    lead: 'A dying hard drive, a failed backup job, a server quietly running out of disk space — the failures that cause real downtime almost always give warning first. Bronze covers monitoring during business hours; Silver and Gold watch around the clock.',
+    title: 'Round-the-clock on every plan. Never guesswork.',
+    lead: 'A dying hard drive, a failed backup job, a server quietly running out of disk space — the failures that cause real downtime almost always give warning first. Every plan watches around the clock, not just business hours.',
     points: [
-      'Devices, servers, switches and Wi-Fi access points monitored 24/7 on Silver and Gold, business hours on Bronze',
+      'Devices, servers, switches and Wi-Fi access points monitored 24/7',
       'Thresholds tuned to catch real problems early — failing disks, memory pressure, unusual login activity',
-      'Out-of-hours alerting that reaches a person, with escalation if the first alert isn’t acknowledged (Silver & Gold)',
+      'Out-of-hours alerting that reaches a person, with escalation if the first alert isn’t acknowledged',
       'Monthly reporting so you can see device health and patch status without having to ask',
     ],
   },
@@ -88,11 +88,11 @@ const SECTIONS = [
     icon: IconCloud,
     eyebrow: '03 — Cloud & backup',
     title: 'Backups that are proven to work, not just scheduled.',
-    lead: 'A backup you’ve never tested is a guess. Silver and Gold verify your backups are actually working, not just scheduled — and on Gold we go further, protecting and backing up your Microsoft 365 or Google Workspace data directly, not just checking someone else’s backup exists.',
+    lead: 'A backup you’ve never tested is a guess. Every plan verifies your backups are actually working, not just scheduled — and on Gold and Platinum we go further, protecting and backing up your Microsoft 365 or Google Workspace data directly, not just checking someone else’s backup exists.',
     points: [
       'Microsoft 365 or Google Workspace administration — mailboxes, licensing, shared drives, conditional access',
-      'Microsoft 365 / Google Workspace data protection and backup, so a deleted mailbox or file isn’t gone for good (Gold)',
-      'Backup verification for servers and endpoints, with scheduled test restores logged and reported (Silver & Gold)',
+      'Microsoft 365 / Google Workspace data protection and backup, so a deleted mailbox or file isn’t gone for good (Gold & Platinum)',
+      'Backup verification for servers and endpoints, with scheduled test restores logged and reported',
       'A written recovery plan for what happens if a device, account or server is lost or compromised',
     ],
   },
@@ -114,7 +114,7 @@ export default function Services() {
           </h1>
           <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-ink/75">
             Three areas, all included across our tiers to different depths —
-            see the <Link className="link-underline text-petrol" to="/pricing">pricing comparison</Link> for exactly what's in Bronze, Silver and Gold.
+            see the <Link className="link-underline text-petrol" to="/pricing">pricing comparison</Link> for exactly what's in Silver, Gold and Platinum.
           </p>
         </div>
       </section>
@@ -177,8 +177,8 @@ export default function Services() {
               </h2>
               <p className="mt-3 max-w-[62ch] text-ink/75">
                 We're a security-first provider, not a helpdesk by default —
-                general day-to-day IT support isn't included in Bronze,
-                Silver or Gold. Two ways to add it: pay-as-you-go break-fix
+                general day-to-day IT support isn't included in Silver,
+                Gold or Platinum. Two ways to add it: pay-as-you-go break-fix
                 callouts from £60/hour, or Premium SLA ticket support from
                 £10 per device a month (Mon–Fri, 8am–5pm), on top of any
                 tier.

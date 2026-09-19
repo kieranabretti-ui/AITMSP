@@ -9,7 +9,7 @@ export default function Pricing() {
     <>
       <Seo
         title="Pricing"
-        description="Simple per-device pricing for managed cybersecurity and monitoring: Bronze £8, Silver £15, Gold £18 per device per month. 24/7 monitoring on Silver and Gold — see what's included and estimate your cost."
+        description="Simple per-device pricing for managed cybersecurity and monitoring: Silver £15, Gold £18, Platinum £25 per device per month. 24/7 monitoring on every plan — see what's included and estimate your cost."
       />
 
       <section className="border-b border-stone bg-paper-dim py-16 md:py-24">
@@ -47,8 +47,8 @@ export default function Pricing() {
             Compare what's included
           </h2>
           <p className="mt-2 max-w-[56ch] text-ink/70">
-            Each tier builds on the one before it — Silver includes
-            everything in Bronze, Gold includes everything in Silver.
+            Each tier builds on the one before it — Gold includes
+            everything in Silver, Platinum includes everything in Gold.
           </p>
           <div className="mt-8">
             <PricingTable />
@@ -95,9 +95,13 @@ export default function Pricing() {
               Not sure which tier fits?
             </h2>
             <p className="mt-3 max-w-[48ch] text-paper/70">
-              Most businesses without a compliance requirement start on
-              Silver. If you handle client card data, health records or
-              operate in a regulated sector, Gold is worth the conversation.
+              Most clients land on Gold — full 24/7 cybersecurity cover,
+              Microsoft 365 or Google Workspace protection, and a named
+              contact for quarterly reviews. Silver suits a leaner setup
+              without the strategic reviews. Platinum is worth the
+              conversation if you want staff phishing simulation and
+              awareness training built in, or handle particularly
+              sensitive data.
             </p>
             <div className="mt-6">
               <Button to="/contact" variant="accent">

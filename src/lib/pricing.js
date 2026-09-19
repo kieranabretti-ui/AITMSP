@@ -1,26 +1,14 @@
 export const TIERS = [
   {
-    id: 'bronze',
-    name: 'Bronze',
-    price: 8,
-    tagline: 'Core security hygiene, monitored during business hours.',
-    recommended: false,
-    features: [
-      'Device monitoring and alerting, business hours (Mon–Fri)',
-      'Security patching for Windows, macOS and common apps',
-      'Antivirus and endpoint protection, centrally managed',
-      'IT asset and licence inventory',
-      'Monthly patch and security report',
-    ],
-  },
-  {
     id: 'silver',
     name: 'Silver',
     price: 15,
-    tagline: '24/7 monitoring and management, not just office hours.',
-    recommended: true,
+    tagline: '24/7 monitoring and management, around the clock.',
+    recommended: false,
     features: [
-      'Everything in Bronze',
+      'Security patching for Windows, macOS and common apps',
+      'Antivirus and endpoint protection, centrally managed',
+      'IT asset and licence inventory',
       '24/7 monitored device management',
       '24/7 monitored cybersecurity (SOC-backed threat detection)',
       'Advanced endpoint detection and response (EDR)',
@@ -35,7 +23,7 @@ export const TIERS = [
     name: 'Gold',
     price: 18,
     tagline: 'Full cybersecurity cover, watched around the clock.',
-    recommended: false,
+    recommended: true,
     features: [
       'Everything in Silver',
       'Microsoft 365 / Google Workspace protection and backup',
@@ -44,43 +32,63 @@ export const TIERS = [
       'Annual cybersecurity posture assessment',
     ],
   },
+  {
+    id: 'platinum',
+    name: 'Platinum',
+    price: 25,
+    tagline: 'Everything in Gold, plus proactive awareness and escalation.',
+    recommended: false,
+    features: [
+      'Everything in Gold',
+      'Detailed security reporting every month',
+      'Phishing simulation and cyber awareness training',
+      'Priority security escalation',
+    ],
+  },
 ]
 
 export const FEATURE_GROUPS = [
   {
     group: 'Security fundamentals',
     rows: [
-      { label: 'Antivirus and endpoint protection', bronze: true, silver: true, gold: true },
-      { label: 'Security patch management', bronze: true, silver: true, gold: true },
-      { label: 'IT asset and licence inventory', bronze: true, silver: true, gold: true },
+      { label: 'Antivirus and endpoint protection', silver: true, gold: true, platinum: true },
+      { label: 'Security patch management', silver: true, gold: true, platinum: true },
+      { label: 'IT asset and licence inventory', silver: true, gold: true, platinum: true },
     ],
   },
   {
     group: 'Monitoring & management',
     rows: [
-      { label: 'Device monitoring and alerting, business hours', bronze: true, silver: true, gold: true },
-      { label: '24/7 monitored device management', bronze: false, silver: true, gold: true },
-      { label: 'Extended monitoring — servers, switches, Wi-Fi', bronze: false, silver: true, gold: true },
-      { label: 'Out-of-hours alerting for critical failures', bronze: false, silver: true, gold: true },
-      { label: 'Monthly patch and security report', bronze: true, silver: true, gold: true },
-      { label: 'Expanded reporting pack (device health, alerts)', bronze: false, silver: true, gold: true },
+      { label: '24/7 monitored device management', silver: true, gold: true, platinum: true },
+      { label: 'Extended monitoring — servers, switches, Wi-Fi', silver: true, gold: true, platinum: true },
+      { label: 'Out-of-hours alerting for critical failures', silver: true, gold: true, platinum: true },
+      { label: 'Monthly patch and security report', silver: true, gold: true, platinum: true },
+      { label: 'Expanded reporting pack (device health, alerts)', silver: true, gold: true, platinum: true },
     ],
   },
   {
     group: 'Cybersecurity',
     rows: [
-      { label: '24/7 monitored cybersecurity (SOC-backed)', bronze: false, silver: true, gold: true },
-      { label: 'Advanced endpoint detection and response (EDR)', bronze: false, silver: true, gold: true },
-      { label: 'Microsoft 365 / Google Workspace protection and backup', bronze: false, silver: false, gold: true },
-      { label: 'Annual cybersecurity posture assessment', bronze: false, silver: false, gold: true },
+      { label: '24/7 monitored cybersecurity (SOC-backed)', silver: true, gold: true, platinum: true },
+      { label: 'Advanced endpoint detection and response (EDR)', silver: true, gold: true, platinum: true },
+      { label: 'Microsoft 365 / Google Workspace protection and backup', silver: false, gold: true, platinum: true },
+      { label: 'Annual cybersecurity posture assessment', silver: false, gold: true, platinum: true },
     ],
   },
   {
     group: 'Backup & strategy',
     rows: [
-      { label: 'Monthly backup verification checks', bronze: false, silver: true, gold: true },
-      { label: 'Priority incident response', bronze: false, silver: false, gold: true, note: '[PLACEHOLDER: exact response-time commitment]' },
-      { label: 'Quarterly strategic security review', bronze: false, silver: false, gold: true },
+      { label: 'Monthly backup verification checks', silver: true, gold: true, platinum: true },
+      { label: 'Priority incident response', silver: false, gold: true, platinum: true, note: '[PLACEHOLDER: exact response-time commitment]' },
+      { label: 'Quarterly strategic security review', silver: false, gold: true, platinum: true },
+    ],
+  },
+  {
+    group: 'Security awareness & reporting',
+    rows: [
+      { label: 'Detailed security reporting every month', silver: false, gold: false, platinum: true },
+      { label: 'Phishing simulation and cyber awareness training', silver: false, gold: false, platinum: true },
+      { label: 'Priority security escalation', silver: false, gold: false, platinum: true },
     ],
   },
 ]

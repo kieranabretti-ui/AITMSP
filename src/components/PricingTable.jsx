@@ -34,7 +34,7 @@ export default function PricingTable() {
       </p>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px] border-collapse text-left">
-        <caption className="sr-only">Feature comparison across Bronze, Silver and Gold plans</caption>
+        <caption className="sr-only">Feature comparison across Silver, Gold and Platinum plans</caption>
         <thead>
           <tr>
             <th scope="col" className="w-[38%] pb-6 pr-4 align-bottom font-body text-sm font-normal text-slate">
@@ -65,7 +65,7 @@ export default function PricingTable() {
               <tr className="border-t border-stone">
                 <th
                   scope="colgroup"
-                  colSpan={4}
+                  colSpan={TIERS.length + 1}
                   className="pb-2 pt-6 text-left font-mono text-xs uppercase tracking-wideish text-brass-dark"
                 >
                   {group.group}
@@ -79,15 +79,14 @@ export default function PricingTable() {
                       <span className="ml-2 text-xs text-brass-dark">{row.note}</span>
                     )}
                   </td>
-                  <td className="py-3 text-center">
-                    <Check on={row.bronze} />
-                  </td>
-                  <td className="bg-petrol/[0.06] py-3 text-center">
-                    <Check on={row.silver} />
-                  </td>
-                  <td className="py-3 text-center">
-                    <Check on={row.gold} />
-                  </td>
+                  {TIERS.map((tier) => (
+                    <td
+                      key={tier.id}
+                      className={`py-3 text-center ${tier.recommended ? 'bg-petrol/[0.06]' : ''}`}
+                    >
+                      <Check on={row[tier.id]} />
+                    </td>
+                  ))}
                 </tr>
               ))}
             </Fragment>
