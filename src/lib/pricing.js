@@ -101,7 +101,7 @@ export const ADDONS = [
     price: 10,
     unit: '/device/month',
     detail:
-      'Day-to-day helpdesk tickets with a guaranteed 2-hour response, Monday to Friday, 8am–5pm. Added on top of any tier.',
+      'Day-to-day helpdesk tickets with a guaranteed response in under 6 hours, Monday to Friday, 8am–5pm. Added on top of any tier.',
   },
 ]
 
