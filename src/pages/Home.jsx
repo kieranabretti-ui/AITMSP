@@ -4,7 +4,7 @@ import PricingCalculator from '../components/PricingCalculator.jsx'
 import { Link } from 'react-router-dom'
 
 const TRUST_SIGNALS = [
-  { label: 'UK-based security team', detail: 'No outsourced SOC' },
+  { label: 'UK-based security team', detail: 'Not a faceless outsourced desk' },
   { label: 'Fixed price per device', detail: 'One line on the invoice' },
   { label: '24/7 monitoring on every plan', detail: 'Not just business hours' },
   { label: 'Fast onboarding', detail: '1–10 working days to full coverage' },
