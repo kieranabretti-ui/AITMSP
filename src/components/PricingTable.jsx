@@ -32,7 +32,7 @@ export default function PricingTable() {
       <p className="mb-3 font-mono text-xs uppercase tracking-wideish text-slate sm:hidden">
         Swipe to compare all tiers →
       </p>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto pt-4">
         <table className="w-full min-w-[640px] border-collapse text-left">
         <caption className="sr-only">Feature comparison across Silver, Gold and Platinum plans</caption>
         <thead>
