@@ -8,7 +8,7 @@ import { BUSINESS } from '../lib/business.js'
 // POST associates with it. The one step this can't do from code: set
 // the notification recipient in the Netlify dashboard (Site
 // configuration → Forms → Form notifications → Email notification →
-// kieranabretti@outlook.com), since that's account/UI-only.
+// hello@a-it.uk), since that's account/UI-only.
 // data-netlify-honeypot on the form handles server-side spam
 // rejection; the client-side checks below are a first-pass filter
 // only, not the real defence.
