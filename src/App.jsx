@@ -7,6 +7,8 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
+import DorsetITSupport from './pages/DorsetITSupport.jsx'
+import DorsetITSupportThankYou from './pages/DorsetITSupportThankYou.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -20,6 +22,10 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        {/* Unlisted Google Ads landing page — deliberately not in Nav,
+            Footer or sitemap.xml. Reachable only by direct link. */}
+        <Route path="/dorset-it-support" element={<DorsetITSupport />} />
+        <Route path="/dorset-it-support/thank-you" element={<DorsetITSupportThankYou />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
