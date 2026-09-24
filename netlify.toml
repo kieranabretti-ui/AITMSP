@@ -25,9 +25,15 @@
 # another third-party script/embed later, it needs adding here too, or
 # the browser will silently block it. Check the browser console after
 # deploying to confirm nothing's blocked; Google's ad-pixel endpoints
-# in particular aren't exhaustively documented, so a CSP violation
-# here would show up as a silently-missing conversion, not an error
-# the visitor sees.
+# in particular aren't exhaustively documented up front — the
+# googletagmanager.com/{a,td} beacon pixels, the doubleclick.net
+# view-through-conversion *script* (not just a fetch/beacon target),
+# and the googleadservices.com pixel needing img-src as well as
+# connect-src all only surfaced from real CSP violations in the
+# browser console after deploying, not from documentation. A CSP
+# violation here shows up as a silently-missing conversion, not an
+# error the visitor sees — so re-check the console after any change to
+# what this page loads.
 # `preload` is deliberately left off HSTS: it's a long-term, hard-to-
 # reverse commitment (submitted to browsers' built-in preload list) —
 # only add it once you're certain this domain is HTTPS-only for good.
@@ -39,4 +45,4 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
