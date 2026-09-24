@@ -1,13 +1,25 @@
+import { useEffect } from 'react'
 import Seo from '../components/Seo.jsx'
 import { BUSINESS } from '../lib/business.js'
+import { hasAnalyticsConsent, loadGoogleAdsConversionTracking, CONSENT_ACCEPTED_EVENT } from '../lib/analytics.js'
 
 // Reached only via the redirect after a successful /dorset-it-support
 // form submission, or a direct link — never linked from elsewhere on
 // the site. noindex for the same reason as the landing page it belongs
-// to; this is also the URL a Google Ads conversion tag would be set to
-// fire on.
+// to; this is also the URL the Google Ads conversion tag fires on
+// (see the useEffect below), since reaching this page is the
+// conversion event for that campaign.
 
 export default function DorsetITSupportThankYou() {
+  useEffect(() => {
+    if (hasAnalyticsConsent()) {
+      loadGoogleAdsConversionTracking()
+      return
+    }
+    window.addEventListener(CONSENT_ACCEPTED_EVENT, loadGoogleAdsConversionTracking)
+    return () => window.removeEventListener(CONSENT_ACCEPTED_EVENT, loadGoogleAdsConversionTracking)
+  }, [])
+
   return (
     <>
       <Seo

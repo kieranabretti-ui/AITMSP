@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getStoredConsent, setStoredConsent, loadAnalytics } from '../lib/analytics.js'
+import { getStoredConsent, setStoredConsent, loadAnalytics, CONSENT_ACCEPTED_EVENT } from '../lib/analytics.js'
+
+function markConsentAccepted() {
+  loadAnalytics()
+  window.dispatchEvent(new Event(CONSENT_ACCEPTED_EVENT))
+}
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false)
@@ -8,7 +13,7 @@ export default function CookieConsent() {
   useEffect(() => {
     const stored = getStoredConsent()
     if (stored === 'accepted') {
-      loadAnalytics()
+      markConsentAccepted()
     } else if (stored !== 'rejected') {
       setVisible(true)
     }
@@ -16,7 +21,7 @@ export default function CookieConsent() {
 
   function respond(choice) {
     setStoredConsent(choice)
-    if (choice === 'accepted') loadAnalytics()
+    if (choice === 'accepted') markConsentAccepted()
     setVisible(false)
   }
 

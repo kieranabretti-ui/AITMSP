@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Seo from '../components/Seo.jsx'
 import Button from '../components/Button.jsx'
 import { BUSINESS } from '../lib/business.js'
 import { TIERS, ADDONS, formatGBP } from '../lib/pricing.js'
+import { hasAnalyticsConsent, loadGoogleAdsConversionTracking, CONSENT_ACCEPTED_EVENT } from '../lib/analytics.js'
 
 // Unlisted landing page for a Google Ads campaign — reachable only by
 // direct link. Not in Nav/Footer, not in sitemap.xml, noindex via Seo
@@ -106,6 +107,20 @@ export default function DorsetITSupport() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | submitting | error
   const mountedAt = useRef(Date.now())
+
+  // Google Ads conversion tag for this campaign — scoped to this page
+  // (not loaded site-wide like GA4), and only once analytics consent
+  // has already been given. If consent hasn't been decided yet, this
+  // picks it up the moment the visitor accepts the cookie banner
+  // rather than requiring a reload.
+  useEffect(() => {
+    if (hasAnalyticsConsent()) {
+      loadGoogleAdsConversionTracking()
+      return
+    }
+    window.addEventListener(CONSENT_ACCEPTED_EVENT, loadGoogleAdsConversionTracking)
+    return () => window.removeEventListener(CONSENT_ACCEPTED_EVENT, loadGoogleAdsConversionTracking)
+  }, [])
 
   function update(field, value) {
     setForm((f) => ({ ...f, [field]: value }))

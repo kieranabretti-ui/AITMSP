@@ -18,10 +18,16 @@
 # once a custom domain and certificate are attached — it isn't
 # something set here. HSTS below reinforces that once HTTPS is live.
 #
-# The CSP is scoped to what this site actually loads (Google Fonts +
-# GA4) — if you add another third-party script/embed later, it needs
-# adding here too, or the browser will silently block it. Check the
-# browser console after deploying to confirm nothing's blocked.
+# The CSP is scoped to what this site actually loads (Google Fonts,
+# GA4, and — on /dorset-it-support and its thank-you page only, but
+# the CSP header itself is site-wide since Netlify headers can't be
+# conditioned on route — the Google Ads conversion tag) — if you add
+# another third-party script/embed later, it needs adding here too, or
+# the browser will silently block it. Check the browser console after
+# deploying to confirm nothing's blocked; Google's ad-pixel endpoints
+# in particular aren't exhaustively documented, so a CSP violation
+# here would show up as a silently-missing conversion, not an error
+# the visitor sees.
 # `preload` is deliberately left off HSTS: it's a long-term, hard-to-
 # reverse commitment (submitted to browsers' built-in preload list) —
 # only add it once you're certain this domain is HTTPS-only for good.
@@ -33,4 +39,4 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
