@@ -36,8 +36,8 @@ export default function Privacy() {
               <p className="mt-3 leading-relaxed">
                 A-IT ("we", "us") is the data controller for personal data
                 collected through this website. You can contact us at{' '}
-                <a className="link-underline text-petrol" href={BUSINESS.emailHref}>{BUSINESS.email}</a>{' '}
-                or {BUSINESS.phone}. Registered address:{' '}
+                <a className="link-underline text-petrol" href={BUSINESS.emailHref}>{BUSINESS.email}</a>.
+                Registered address:{' '}
                 {BUSINESS.address}. Companies House number:{' '}
                 [PLACEHOLDER: company registration number].
               </p>

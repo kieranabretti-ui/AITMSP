@@ -132,11 +132,7 @@ export default function Contact() {
                   Thanks — message received.
                 </h2>
                 <p className="mt-3 max-w-[46ch] text-ink/75">
-                  We'll be in touch soon. If it's urgent, call us on{' '}
-                  <a className="link-underline text-petrol" href={BUSINESS.phoneHref}>
-                    {BUSINESS.phone}
-                  </a>
-                  .
+                  We'll be in touch soon.
                 </p>
                 <p className="mt-4 max-w-[46ch] text-sm text-ink/60">
                   Already a client? Please raise support requests through our usual Jira ticketing system rather
@@ -269,12 +265,6 @@ export default function Contact() {
 
           <div className="md:col-span-4 md:col-start-9">
             <div className="space-y-8 border-t border-stone pt-8 md:border-t-0 md:border-l md:border-stone md:pl-10 md:pt-0">
-              <div>
-                <p className="eyebrow">Call</p>
-                <a href={BUSINESS.phoneHref} className="link-underline mt-1 block font-display text-xl font-semibold text-ink">
-                  {BUSINESS.phone}
-                </a>
-              </div>
               <div>
                 <p className="eyebrow">Email</p>
                 <a href={BUSINESS.emailHref} className="link-underline mt-1 block text-ink/85">

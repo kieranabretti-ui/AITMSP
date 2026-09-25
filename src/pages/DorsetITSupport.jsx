@@ -209,9 +209,6 @@ export default function DorsetITSupport() {
               <Button to="#lead-form" variant="accent">
                 Get a Quote
               </Button>
-              <Button href={BUSINESS.phoneHref} variant="outline">
-                Call us &mdash; {BUSINESS.phone}
-              </Button>
             </div>
           </div>
         </div>

@@ -27,7 +27,6 @@ export default function Footer() {
         <div>
           <h3 className="eyebrow !text-brass-light">Get in touch</h3>
           <ul className="mt-4 space-y-3 text-[15px] text-paper/80">
-            <li><a className="link-underline hover:text-paper" href={BUSINESS.phoneHref}>{BUSINESS.phone}</a></li>
             <li><a className="link-underline hover:text-paper" href={BUSINESS.emailHref}>{BUSINESS.email}</a></li>
             <li className="text-paper/60">{BUSINESS.hours}</li>
           </ul>

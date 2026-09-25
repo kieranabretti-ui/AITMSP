@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import Seo from '../components/Seo.jsx'
-import { BUSINESS } from '../lib/business.js'
 import { hasAnalyticsConsent, loadGoogleAdsConversionTracking, CONSENT_ACCEPTED_EVENT } from '../lib/analytics.js'
 
 // Reached only via the redirect after a successful /dorset-it-support
@@ -36,11 +35,7 @@ export default function DorsetITSupportThankYou() {
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-ink/75">
               A member of the A-IT team will be in touch within one business
-              day. If it&rsquo;s urgent, call us on{' '}
-              <a className="link-underline text-petrol" href={BUSINESS.phoneHref}>
-                {BUSINESS.phone}
-              </a>
-              .
+              day.
             </p>
             <p className="mt-4 text-sm text-ink/60">
               Already a client? Please raise support requests through our usual Jira ticketing system rather than
