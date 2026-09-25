@@ -18,6 +18,10 @@ import { hasAnalyticsConsent, loadGoogleAdsConversionTracking, CONSENT_ACCEPTED_
 // form also needs setting in the Netlify dashboard (Site configuration
 // → Forms → Form notifications) — it doesn't inherit the "contact"
 // form's setting.
+//
+// Separately (see handleSubmit below), also relays straight into the
+// CRM as a lead via relay-lead.js — not the same thing as a Netlify
+// Forms notification, and not dependent on one being configured.
 
 const MIN_FILL_TIME_MS = 3000
 
@@ -144,6 +148,22 @@ export default function DorsetITSupport() {
       return
     }
 
+    // Best-effort side channel straight into the CRM as a lead — fired
+    // alongside the real (Netlify Forms) submission below, not instead
+    // of it. Netlify Forms stays the source of truth for whether this
+    // submission succeeded from the visitor's point of view; a relay
+    // failure here only ever logs a console warning, never blocks the
+    // thank-you redirect or shows an error. See relay-lead.js for why
+    // this exists instead of a Netlify Forms notification webhook.
+    const relayPromise = fetch('/.netlify/functions/relay-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name, company: form.company, email: form.email,
+        phone: form.phone, devices: form.devices, interest: form.interest,
+      }),
+    }).catch((err) => console.warn('Could not relay this lead into the CRM:', err.message))
+
     try {
       const response = await fetch('/', {
         method: 'POST',
@@ -151,6 +171,9 @@ export default function DorsetITSupport() {
         body: encodeFormData({ 'form-name': 'dorset-it-support', ...form }),
       })
       if (!response.ok) throw new Error(`Submission failed: ${response.status}`)
+      // Give the relay a chance to actually finish its request before
+      // the navigation below potentially cuts it off.
+      await relayPromise
       // A full navigation (not client-side routing) so the thank-you
       // URL gets a real page load — that's what a Google Ads website
       // conversion tag fires on.

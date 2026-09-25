@@ -44,6 +44,33 @@ To deploy:
 There's no CI test/lint step wired up yet; `npm run build` is what
 Netlify runs, and it will fail the deploy if the build breaks.
 
+## Dorset IT Support landing page → CRM lead relay (`relay-lead.js`)
+
+The `/dorset-it-support` Google Ads landing page form submits two
+places at once: Netlify Forms (as normal, for the email
+notification/dashboard record) and, via `netlify/functions/relay-lead.js`,
+straight into the CRM (crm.a-it.uk) as a lead on the Sales pipeline.
+The relay call is best-effort and never blocks the visitor's thank-you
+redirect — a failure there only logs a console warning.
+
+**Required environment variable** (Netlify → this site → **Site
+configuration → Environment variables** — never `VITE_`-prefixed, or
+it would ship into the browser bundle):
+
+| Key | Value | Notes |
+|---|---|---|
+| `DORSET_LEAD_WEBHOOK_SECRET` | same value as the CRM site's own `DORSET_LEAD_WEBHOOK_SECRET` | attached server-side to the relay's call to the CRM; never sent to the browser |
+
+Set this to the exact same value already configured on the CRM site
+(crm.a-it.uk) for its `dorset-lead-webhook.js` function — see that
+repo's README, section 13. Redeploy this site after adding it; without
+it the relay returns a 500 and leads won't reach the CRM, even though
+Netlify Forms will still show the submission normally.
+
+If a submission isn't showing up as a lead in the CRM, check this
+site's function logs first (Netlify → this site → Functions →
+relay-lead → Logs), then the CRM's own `dorset-lead-webhook` logs.
+
 ## Design system
 
 Colour tokens and font families are defined in `tailwind.config.js`
