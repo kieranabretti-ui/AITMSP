@@ -129,16 +129,18 @@ export default function Contact() {
             {status === 'sent' ? (
               <div className="rounded-sm border border-petrol/30 bg-petrol/[0.06] p-8">
                 <h2 className="font-display text-2xl font-semibold text-ink">
-                  Message received.
+                  Thanks — message received.
                 </h2>
                 <p className="mt-3 max-w-[46ch] text-ink/75">
-                  We'll come back to you within{' '}
-                  <span className="font-medium">[PLACEHOLDER: reply-time commitment]</span>.
-                  If it's urgent, call us on{' '}
+                  We'll be in touch soon. If it's urgent, call us on{' '}
                   <a className="link-underline text-petrol" href={BUSINESS.phoneHref}>
                     {BUSINESS.phone}
                   </a>
                   .
+                </p>
+                <p className="mt-4 max-w-[46ch] text-sm text-ink/60">
+                  Already a client? Please raise support requests through our usual Jira ticketing system rather
+                  than this form, so they reach the right queue straight away.
                 </p>
               </div>
             ) : (

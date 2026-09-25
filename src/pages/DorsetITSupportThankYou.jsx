@@ -42,6 +42,10 @@ export default function DorsetITSupportThankYou() {
               </a>
               .
             </p>
+            <p className="mt-4 text-sm text-ink/60">
+              Already a client? Please raise support requests through our usual Jira ticketing system rather than
+              this form, so they reach the right queue straight away.
+            </p>
           </div>
         </div>
       </section>

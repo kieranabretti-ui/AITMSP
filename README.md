@@ -98,8 +98,7 @@ real content. In summary:
   client-side demo (validates, shows a confirmation) but is **not**
   wired to a real inbox yet. Connect `CONTACT_ENDPOINT` at the top of
   that file to a real submission target (serverless function,
-  Formspree, CRM webhook, etc.) before launch, and confirm the
-  reply-time commitment shown on the success screen.
+  Formspree, CRM webhook, etc.) before launch.
 - **Cyber Essentials Plus** badge on the homepage trust strip — remove
   or confirm this if the certification isn't held.
 
