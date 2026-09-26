@@ -34,12 +34,13 @@ export default function Privacy() {
             <div>
               <h2 className="font-display text-xl font-semibold text-ink">Who we are</h2>
               <p className="mt-3 leading-relaxed">
-                A-IT ("we", "us") is the data controller for personal data
-                collected through this website. You can contact us at{' '}
+                {BUSINESS.legalName} ("we", "us"), trading as A-IT, is the
+                data controller for personal data collected through this
+                website. You can contact us at{' '}
                 <a className="link-underline text-petrol" href={BUSINESS.emailHref}>{BUSINESS.email}</a>.
                 Registered address:{' '}
-                {BUSINESS.address}. Companies House number:{' '}
-                [PLACEHOLDER: company registration number].
+                {BUSINESS.address}. Company number:{' '}
+                {BUSINESS.companyNumber}.
               </p>
             </div>
 

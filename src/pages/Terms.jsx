@@ -74,11 +74,11 @@ export default function Terms() {
             <div>
               <h2 className="font-display text-xl font-semibold text-ink">Intellectual property</h2>
               <p className="mt-3 leading-relaxed">
-                The text, design and branding on this site belong to A-IT
-                unless stated otherwise. You can view and share pages
-                normally (e.g. sending a link), but don't reproduce or
-                repurpose the content commercially without asking us
-                first.
+                The text, design and branding on this site belong to{' '}
+                {BUSINESS.legalName} (trading as A-IT) unless stated
+                otherwise. You can view and share pages normally (e.g.
+                sending a link), but don't reproduce or repurpose the
+                content commercially without asking us first.
               </p>
             </div>
 
@@ -122,6 +122,10 @@ export default function Terms() {
                 See our{' '}
                 <Link className="link-underline text-petrol" to="/privacy">Privacy Policy</Link> for how we handle
                 personal data.
+              </p>
+              <p className="mt-3 text-sm text-slate">
+                A-IT is a trading name of {BUSINESS.legalName}, company number{' '}
+                {BUSINESS.companyNumber}.
               </p>
             </div>
           </div>
