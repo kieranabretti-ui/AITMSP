@@ -1,5 +1,15 @@
-export default function Logo({ dark = false }) {
+export default function Logo({ dark = false, mark = false }) {
   const itColor = dark ? 'text-petrol-light' : 'text-petrol'
+
+  if (!mark) {
+    return (
+      <span className="inline-flex items-baseline gap-[2px] font-display text-2xl font-semibold tracking-tightish">
+        <span className={dark ? 'text-paper' : 'text-ink'}>A</span>
+        <span className={itColor}>-IT</span>
+      </span>
+    )
+  }
+
   return (
     <span
       className="inline-flex items-baseline font-display text-2xl font-semibold tracking-tightish"
