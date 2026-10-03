@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="border-t border-stone bg-ink text-paper/90">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <Logo dark mark />
+          <Logo dark />
           <p className="mt-4 max-w-[30ch] text-[15px] leading-relaxed text-paper/65">
             Managed cybersecurity and monitoring for small and medium
             businesses across the UK.
